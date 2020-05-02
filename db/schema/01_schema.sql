@@ -16,7 +16,7 @@ CREATE TABLE maps (
   title VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
   zoom INTEGER  NOT NULL DEFAULT 10,
-  creator_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  creator_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE favorites (
