@@ -36,18 +36,24 @@ url/:user_id, (users contributions and users maps)
 
 //CREATING END POINTS FOR APIS
 
- CREATE
- READ
- UPDATE
- DELETE
-R B browse GET / GET /create
-R R read GET /favorites/:id GET map/:map_id GET mymaps/:user_id
-U E edit POST map/:map_id
-C A add POST url/create
-D D delete POST /favorites/:map_id/(DELETE) POST /map/:marker_id/(DELETE)
+CREATE POST /create
+- Saves input to database, redirects to map/:map_id
+READ GET / 
+- renders homepage
+READ GET /mymaps/:user_id
+- Renders profile page with favorites, my maps, my markers
+READ  GET /create 
+- Renders map creation page  
+READ GET /map/:map_id
+- renders map editing and viewing for a particular map
 
+(AJAX)
+/map/:map_id
+- add/edit/delete a marker on a map
+/ /mymaps/:user_id
+- favorite/unfavorite map
 
-
+ 
 Once you know the resources that you'll have, write out the routes that you'll need to perform BREAD operations on those resources
 Remember RESTful conventions (they make it much easier)
 ### MVP vs MVD
