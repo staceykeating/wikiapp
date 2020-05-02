@@ -4,3 +4,4 @@ INSERT INTO maps (title, description, zoom, creator_id) VALUES ('Best Breweries'
  ('Tasty Tacos', 'My got to places to curb my taco cravings!', 10, 2),
  ('Fast Food Feasting', 'My cure for all munchies!', 10, 3);
 
+
