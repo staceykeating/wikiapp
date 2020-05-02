@@ -22,7 +22,7 @@ They have the form: Given _____, when ______, then ______.
 [] Given that I am logged in, when I click favourite on a post, then it is added to my favourites and heart is lit up.
 [] When user arrives to the page, there are example maps and instructions on how to use them.
 [] Users created maps can contain multiple locations
-[] You can also chain on an and to user stories/scenarios 
+[] You can also chain on an and to user stories/scenarios
 
 eg. Given that I am logged in, when I click favourite on a post, then it is added to my favourites and the save icon will change to indicate success.
 ### ERD
@@ -30,21 +30,21 @@ The user stories provide you with nouns (eg. user, posts, favourites)
 Use these nouns/entities to build out your database (ie. tables are the nouns from the stories)
 ### Routes
 url/, (home)
-url/favourites/:user_id, 
+url/favourites/:user_id,
 url/:map_id, (edit/view)
-url/:user_id, (users contributions)
+url/:user_id, (users contributions and users maps)
 
 //CREATING END POINTS FOR APIS
 
- CREATE 
- READ 
- UPDATE 
+ CREATE
+ READ
+ UPDATE
  DELETE
 R B browse GET / GET /create
-R R read GET /favorites/:id GET map/:map_id GET contributions/:user_id
-U E edit POST map/:map_id 
+R R read GET /favorites/:id GET map/:map_id GET mymaps/:user_id
+U E edit POST map/:map_id
 C A add POST url/create
-D D delete POST /favorites/:map_id/(DELETE) POST /map/:marker_id/(DELETE) 
+D D delete POST /favorites/:map_id/(DELETE) POST /map/:marker_id/(DELETE)
 
 
 
