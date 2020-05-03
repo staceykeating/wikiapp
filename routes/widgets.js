@@ -26,4 +26,7 @@ module.exports = (db) => {
   return router;
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b4295871f9bdc4aae5e5dc11ff30e90b1048d005

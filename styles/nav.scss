@@ -1,0 +1,40 @@
+#navbar {
+  background-color: forestgreen;
+  position: fixed;
+  top: 0;
+  height: 120px;
+  width: 100%;
+  z-index: 10;
+  padding:1.5em;
+  margin: auto;
+}
+/* Navbar links */
+.navbar-name {
+  font-size: 40px;
+  color: whitesmoke;
+  font-family: 'Source Sans Pro', sans-serif;
+  display: inline-block;
+  text-decoration: none;
+  padding-right: 20px;
+}
+
+.header .profile {
+  font-size: 17px;
+  color: whitesmoke;
+  font-family: 'Source Sans Pro', sans-serif;
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+
+}
+.header .create {
+  font-size: 17px;
+  color: whitesmoke;
+  font-family: 'Source Sans Pro', sans-serif;
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+
