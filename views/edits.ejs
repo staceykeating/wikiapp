@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+
+  <title>Wiki Map</title>
+</head>
+<body>
+   <%- include('nav') %>
+  <main>
+    <div class="create">
+      <h2>Create Marker</h2>
+      <form id="create marker " action="/map/:map_id" method="POST">
+        <input type="text" placeholder="Search..">
+        <button type="submit">Search</button>
+      </form>
+      <form>
+        <div>
+          <label for="description">Add Marker Description</label>
+        <input type="text" id="description">
+        </div>
+        <div>
+          <label for="url">Add Marker Url</label>
+          <input type="text" id="url">
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    <div class="markers">
+      <h2>Markers</h2>
+      <ul>
+        <li>include marker from db for marker_id</li>
+        <button class="delete" type="button">⦻</button>
+        <li>include marker from db for marker_id</li>
+        <button class="delete" type="button">⦻</button>
+        <li>include marker from db for marker_id</li>
+        <button class="delete" type="button">⦻</button>
+      </ul>
+    </div>
+
+    <h3>Name of Map</h3>
+    <img src= "https://thehoppyending.files.wordpress.com/2013/12/slide1.jpg?w=300&h=225" >
+  </main>
+</body>
+</html>
