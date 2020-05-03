@@ -15,12 +15,10 @@ module.exports = (db) => {
     db.query(query)
       .then(data => {
         const widgets = data.rows;
-        res.json({ widgets });
+        res.send('hello');
       })
       .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+        res.send('hello');
       });
   });
   return router;
