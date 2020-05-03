@@ -25,8 +25,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
-<<<<<<< HEAD
-=======
-
->>>>>>> stacey
