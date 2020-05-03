@@ -1,0 +1,24 @@
+.flex-container {
+  display: inline-block
+}
+
+.imagebox {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+img {
+  width: 20vw;
+  justify-content: space-between;
+}
+
+h3 {
+  justify-content: space-around;
+
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+ }
+
