@@ -1,19 +1,23 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = () => {
+module.exports = (db) => {
   router.get("/", (req, res) => {
     res.render("index");
   });
 
   router.get('/maps', (req, res) => {
-    const maps = [
-      {id: 1, title: 'Breweries'},
-      {id: 2, title: 'Cakes'},
-      {id: 3, title: 'Party Supplies'}
-    ];
-    //database.getAllMaps();
-    res.json(maps);
+    db.getAllMapsInDatabase()
+      .then(maps => {
+      res.json(maps);
+      });
+  });
+
+  router.get(':mapid/markers', (req, res) => {
+    db.getMarkersForMap(map)
+    .then(markers => {
+      res.json(markers);
+    });
   });
 
   router.get('/profile', (req, res) => {

@@ -1,6 +1,5 @@
-
 let _map;
-const initialize = function(map) {
+const initialize = function(map, marker) {
     // creates a class for this particular map
     const newDiv = `map_${map.id}`;
     // appends a new div with the newDiv class for this particular map to live
@@ -12,12 +11,9 @@ const initialize = function(map) {
       disableDefaultUI: true
     });
 
-    const markers = [
-      {map_id: 3, title: 'tacofino', latitude:49.279762, longitude: -123.115518},
-      {map_id: 3, title: 'mcdonalds', latitude:49.2728373, longitude: -123.119373}
-    ];
-    
+
     for (const marker of markers) {
+      
       // Initialize info window and insert content as html
       let infowindow = new google.maps.InfoWindow({
         content: `<h4>${marker.title}</h4>`

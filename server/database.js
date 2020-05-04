@@ -62,15 +62,15 @@ const getMarkersForMap = function(map) {
   }
   exports.getAllUserMarkers = getAllUserMarkers;
 
-const getAllMapsInDatabase = function(maps) {
+const getAllMapsInDatabase = function() {
   return db.query(`
   SELECT * FROM maps;
-  `, [maps])
+  `,)
 //returns multiple maps
     .then(res => (res.rows))
     .catch(error => (error));
   }
-exports.getAllMarkers = getAllMarkers;
+exports.getAllMapsInDatabase = getAllMapsInDatabase;
 
 
   //add new marker to database
