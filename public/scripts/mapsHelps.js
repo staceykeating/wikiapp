@@ -1,7 +1,6 @@
 const createMap = function(maps) {
   for (const map of maps) {
     initialize(map);
-    console.log(map);
   }
 };
 
@@ -11,4 +10,7 @@ const loadMaps = function() {
     createMap(maps);
   })
 }
+
 loadMaps();
+
+
