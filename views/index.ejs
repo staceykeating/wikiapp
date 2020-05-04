@@ -4,31 +4,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+  <link rel="stylesheet" href="../styles/index.css" type="text/css" />
 
   <title>Wiki Map</title>
 </head>
-
-<body>
+<header>
   <%- include('partials/nav') %>
-  <main>
-    <h3>BREWERIES </h3>
+</header>
+<body>
+  <main class="mapbox">
+    <h1>Browse All Maps</h1>
+    <article class=eachmap>
+    <h2>BREWERIES </h2>
     <img src="https://thehoppyending.files.wordpress.com/2013/12/slide1.jpg?w=300&h=225">
-    <button class="like" type="button" >♡</button>
-    <button class="edit" type="button">
-      <a class="create map" href="/maps/edit">✎</a>
-      </button>
-    <h3>DONUTS</h3>
+    <i><a href="/create" class="fas fa-heart"></i></a><i><a href="/maps" class="fas fa-edit"></i></a>
+    </article>
+    <article class=eachmap>
+      <h2>DONUTS</h2>
     <img src="https://thehoppyending.files.wordpress.com/2013/12/slide1.jpg?w=300&h=225">
-    <button class="like" type="button" >♡</button>
-    <button class="edit" type="button">
-      <a class="create map" href="/maps/edit">✎</a>
-      </button>
-    <h3>TACOS</h3>
+    <a href="/create" class="fas fa-heart"></i></a><a href="/maps" class="fas fa-edit"></i></a>
+  </article>
+    <article class=eachmap>
+    <h2>TACOS</h2>
     <img src="https://thehoppyending.files.wordpress.com/2013/12/slide1.jpg?w=300&h=225">
-    <button class="like" type="button">♡</button>
-    <button class="edit" type="button">
-      <a class="create map" href="/maps/edit">✎</a>
-      </button>
+    <a href="/create" class="fas fa-heart"></i></a><a href="/maps" class="fas fa-edit"></i></a>
+  </article>
   </main>
 </body>
