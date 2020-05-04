@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="../styles/index.css" type="text/css" />
 
   <title>Wiki Map</title>
+  <style>
+    .maps {
+      height: 400px;
+      width: 400px;
+    }
+  </style>
 </head>
 <header>
   <%- include('partials/nav') %>
@@ -17,7 +23,7 @@
     <h1>Browse All Maps</h1>
     <article class=eachmap>
     <h2>BREWERIES </h2>
-    <img src="https://thehoppyending.files.wordpress.com/2013/12/slide1.jpg?w=300&h=225">
+    <img src="https://thehoppyending.files.wordpress.com/2013/12/slide1.jpg?w=300&h=225">M
     <i><a href="/create" class="fas fa-heart"></i></a><i><a href="/maps" class="fas fa-edit"></i></a>
     </article>
     <article class=eachmap>
@@ -31,4 +37,12 @@
     <a href="/create" class="fas fa-heart"></i></a><a href="/maps" class="fas fa-edit"></i></a>
   </article>
   </main>
+  <div id="maps_container">
+
+  </div>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA"></script>
+  <script src="/scripts/initialize-map.js"></script>
+  <script src="/scripts/mapsHelps.js"></script>
 </body>
+</html>
