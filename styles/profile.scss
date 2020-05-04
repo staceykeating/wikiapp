@@ -1,9 +1,25 @@
+.fa, .fas {
+  color: black;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mainbox {
+  display: flex;
+  justify-content: center;
+  margin-top: 25vw;
+
+  }
+
+.map {
+  display: table-caption;
+}
+
 .flex-container {
   display: inline-block
 }
 
 .imagebox {
-  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -13,7 +29,7 @@ img {
 }
 
 h3 {
-  justify-content: space-around;
+  justify-content: center;
 
 }
 
@@ -22,3 +38,24 @@ body {
   font-weight: 300;
  }
 
+
+ .mapbox {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15vw;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+.eachmap img {
+  width: 60vw;
+  justify-content: center;
+}
+
+
+img {
+  width: 20vw;
+  justify-content: space-between;
+}
