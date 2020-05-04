@@ -2,9 +2,11 @@
   background-color: forestgreen;
   position: fixed;
   top: 0;
+  left: 0px;
+  right: 0px;
   height: 120px;
-  width: 100%;
-  z-index: 10;
+  width: 100vw;
+  z-index: 9999;
   padding:1.5em;
   margin: auto;
 }
