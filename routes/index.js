@@ -27,6 +27,10 @@ module.exports = (db) => {
   router.get('/create', (req, res) => {
     res.render("create")
   })
- 
+
+  router.get('/edits', (req, res) => {
+    res.render("edits")
+  })
+
   return router;
 };

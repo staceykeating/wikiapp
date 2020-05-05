@@ -1,0 +1,26 @@
+.createbox {
+  display: inline-flexbox;
+  justify-content: center;
+  margin-top: 20vw;
+  text-align: center;
+  background-color: #c5e8c5;
+  border-radius: 1em;
+  margin-left: 23vw;
+  margin-right: 23vw;
+  height: 30vw;
+  }
+
+  .column {
+    padding-top: 5vw;
+    text-align: center;
+
+  }
+
+  h1 {
+    font-size: 4em;
+    color: #398039;
+  }
+
+input.form-control {
+  text-align: center;
+}
