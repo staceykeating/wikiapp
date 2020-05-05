@@ -91,3 +91,4 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
     .catch(error => (error));
   }
   exports.addMap = addMap;
+
