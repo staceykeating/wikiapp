@@ -11,11 +11,10 @@ db.connect();
 const getMarkersForMap = function(map) {
   return db.query(`
   SELECT * FROM markers
-  JOIN maps ON map_id = maps.id
-  WHERE maps.id = $1;
+  WHERE map_id = $1;
   `, [map])
 
-  .then(res => (console.log(res.rows[0])))
+  .then(res => res.rows)
   .catch(error => (error));
 }
   exports.getMarkersForMap = getMarkersForMap;
