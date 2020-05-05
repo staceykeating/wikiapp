@@ -1,0 +1,46 @@
+
+.column {
+  flex: 33.33%;
+  flex-direction: column;
+  padding: 5px;
+}
+
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-bottom: 10vw;
+  }
+
+  .mainbox {
+
+    justify-content: center;
+    margin-top: 15vw;
+
+    }
+
+    img {
+      width: 40vw;
+      height: 40vw  ;
+      justify-content: space-between;
+    }
+
+ul {
+  padding-left: 0;
+}
+
+.markerbox {
+  background-color: lightgrey;
+  width: 35vw;
+}
+
+.createbox {
+  background-color: lightgrey;
+  width: 35vw;
+}
+
+.mapbox {
+  background-color: lightgrey;
+}
