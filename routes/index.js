@@ -1,8 +1,12 @@
 const express = require('express');
 const router  = express.Router();
 
+
+
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    req.session.user_id = 2;
+    console.log(req.session);
     res.render("index");
   });
 
@@ -32,7 +36,18 @@ module.exports = (db) => {
     res.render("create")
   })
 
-  router.get('/edits', (req, res) => {
+  router.post('/create', (req, res) => {
+    const creator_id = req.session.user_id;
+    db.addMap(req.body.title, req.body.description, creator_id)
+    .then(map => {
+      res.redirect(`/map_show/${map.id}`);
+    });
+    // db.getMapByUser().then(map => {
+    //   res.redirect(`/map_show/${map.id}`);
+    // });//function that gets map by creator id and title
+  });
+
+  router.get('/map_show/:map_id', (req, res) => {
     res.render("edits")
   })
 

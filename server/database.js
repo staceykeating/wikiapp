@@ -75,18 +75,18 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
   //add new marker to database
   const addMarker =  function(marker) {
     return db.query(`INSERT INTO markers
-    (title, description, image, longitude, latitude, map_id, creator_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-    [marker.title, marker.description, marker.image, marker.longitude, marker.latitude, marker.map_id, marker.creator_id])
-    .then(res => (res.rows[0]))
+    (marker_title, description, image, longitude, latitude, map_id, creator_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+    [marker.marker_title, marker.description, marker.image, marker.longitude, marker.latitude, marker.map_id, marker.creator_id])
+    .then(res => (res.rows))
     .catch(error => (error));
   }
   exports.addMarker = addMarker;
 
 //add new map to database
-  const addMap =  function(map) {
+  const addMap =  function(title, description, creator_id) {
     return db.query(`INSERT INTO maps
-    (title, creator_id, description, zoom) VALUES($1, $2, $3, $4) RETURNING *`,
-    [map.title, map.creator_id, map.description, map.zoom])
+    (map_title, creator_id, description, zoom) VALUES($1, $2, $3, $4) RETURNING *;`,
+    [title, creator_id, description, 12])
     .then(res => (res.rows[0]))
     .catch(error => (error));
   }
