@@ -1,13 +1,13 @@
-const createMap = function(maps, class) {
+const createMap = function(maps, container) {
   for (const map of maps) {
-    initialize(map, class);
+    initialize(map, container);
   }
 };
 
 const loadFavoriteMaps = function() {
   $.getJSON('/my-favorites')
   .then(function(maps) {
-    createMap(maps, 'favorites-container');
+    createMap(maps, 'my-favorites-container');
   })
 };
 

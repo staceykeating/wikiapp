@@ -1,5 +1,5 @@
 let _map;
-const initialize = function(map) {
+const initialize = function(map, container) {
     // creates a class for this particular map
     const newDiv = `map_${map.id}`;
     const newMapTemplate= `<h2>${map.map_title}</h2> <div class="maps ${newDiv}"></div>
@@ -9,14 +9,13 @@ const initialize = function(map) {
 
 
     // appends a new div with the newDiv class for this particular map to live
-    $(`#maps_container`).append(newMapTemplate);
+    $(`.${container}`).append(newMapTemplate);
     // creates an instance of a map
     _map = new google.maps.Map($(`.${newDiv}`)[0], {
       center: {lat: 49.2827, lng: -123.1207}, // all maps are of vancouver
       zoom: 12,
       disableDefaultUI: true
     });
-
 
     const markers = map.markers;
 

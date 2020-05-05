@@ -91,14 +91,27 @@ module.exports = (db) => {
     .then(map => {
       res.redirect(`/map_show/${map.id}`);
     });
-    // db.getMapByUser().then(map => {
-    //   res.redirect(`/map_show/${map.id}`);
-    // });//function that gets map by creator id and title
   });
 
-  router.get('/map_show/:map_id', (req, res) => {
-    res.render("edits")
-  })
+  router.post('/:map_id/edit', (req, res) => {
+    const map_id = req.params.map_id;
+    res.redirect(`/map_show/:${map_id}`,)
+  });
+
+  router.get('/map_show', (req, res) => {
+    const map_id = req.params.map_id;
+    db.getMapById(map_id)
+    .then(map => {
+      db.getMarkersForMap(map.id)
+        .then(markers => {
+          map['markers'] = markers;
+          map
+          res.json(map);
+        })
+      })
+    })
+
 
   return router;
 };
+

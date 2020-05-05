@@ -94,4 +94,12 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
     .catch(error => (error));
   }
   exports.addMap = addMap;
-
+//returns map for map id
+  const getMapById =  function(map_id) {
+    return db.query(`
+    SELECT * FROM maps WHERE id = $1;
+    `,[map_id] )
+    .then(res => (res.rows[0]))
+    .catch(error => (error));
+  }
+  exports.getMapById = getMapById;
