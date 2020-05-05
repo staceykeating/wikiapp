@@ -3,45 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="../styles/edits.css">
+
 
   <title>Wiki Map</title>
 </head>
 <body>
    <%- include('partials/nav') %>
-  <main>
-    <div class="create">
-      <h2>Create Marker</h2>
-      <form id="create marker " action="/map/:map_id" method="POST">
-        <input type="text" placeholder="Search..">
-        <button type="submit">Search</button>
+  <main class=mainbox>
+    <div class="row">
+    <div class="column">
+    <div class="createbox">
+      <h2>Mark the Spot</h2>
+      <form id="create-marker" action="/map/:map_id" method="POST">
+        <input type="text" placeholder="Search">
       </form>
       <form>
         <div>
-          <label for="description">Add Marker Description</label>
-        <input type="text" id="description">
+        <input type="text" id="description" placeholder="Describe your marker">
         </div>
         <div>
-          <label for="url">Add Marker Url</label>
-          <input type="text" id="url">
+          <input type="text" id="url" placeholder="Add image URL">
         </div>
         <button type="submit">Add</button>
       </form>
     </div>
-    <div class="markers">
+    <div class="markerbox">
       <h2>Markers</h2>
       <ul>
-        <li>include marker from db for marker_id</li>
+        <h4>MarkerName</h4>
+        <p>include marker from db for marker_id</p>
         <button class="delete" type="button">⦻</button>
-        <li>include marker from db for marker_id</li>
+        <h4>MarkerName</h4>
+        <p>include marker from db for marker_id</p>
         <button class="delete" type="button">⦻</button>
-        <li>include marker from db for marker_id</li>
+        <h4>MarkerName</h4>
+        <p>include marker from db for marker_id</p>
         <button class="delete" type="button">⦻</button>
       </ul>
     </div>
-
+    </div>
+    <div class="mapbox">
     <h3>Name of Map</h3>
-    <img src= "https://thehoppyending.files.wordpress.com/2013/12/slide1.jpg?w=300&h=225" >
+    <img src= "https://www.asheya.com/wp-content/uploads/2018/03/Google-Map-Vancouver.jpg">
+  </div>
   </main>
+</div>
 </body>
 </html>

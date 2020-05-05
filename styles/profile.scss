@@ -1,19 +1,32 @@
-.fa, .fas {
+a.fa-heart, a.fas-heart {
+  color:  #f08080;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: large;
+}
+a.fa, a.fas :focus {
   color: black;
   font-weight: 500;
-  text-decoration: none;
 }
 
-.row {
+.maprow {
   display: flex;
   justify-content: space-around;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-bottom: 10vw;
 }
 
 .icons {
   justify-content: flex-end;
   text-align: end;
-  margin-right: 6vw;
+  margin-right: 4vw;
+  color: black;
+  font-weight: 500;
+  text-decoration: none;
 }
+
+
 
 .column {
   flex: 33.33%;
@@ -48,8 +61,10 @@ body {
 
 
 img {
-  width: 20vw;
+  width: 300px;
+  height: 300px;
   justify-content: space-between;
+  object-fit: cover;
 }
 
 h3 {

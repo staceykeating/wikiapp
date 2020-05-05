@@ -1,5 +1,5 @@
 #navbar {
-  background-color: forestgreen;
+  background-color: #aadafb;
   position: fixed;
   top: 0;
   left: 0px;
@@ -12,10 +12,10 @@
 }
 /* Navbar links */
 .navbar-name {
-  font-size: 40px;
+  padding-top: inherit;
+  font-size: 60px;
   color: whitesmoke;
-  font-family: 'Source Sans Pro', sans-serif;
-  display: inline-block;
+  font-family: 'Bungee Shade', cursive;
   text-decoration: none;
   padding-right: 20px;
 }
