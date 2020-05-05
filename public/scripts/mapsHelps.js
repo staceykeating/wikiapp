@@ -14,6 +14,7 @@ const loadMaps = function() {
 loadMaps();
 
 $(document).ready(function() {
+  const favouriteMap = function() {}
   $(".fas fa-heart").click(function() {
     let clicked = $(this).attr('user_id');
     if(clicked === true){
@@ -21,5 +22,11 @@ $(document).ready(function() {
    } else {
     $(this).find('.fas fa-heart').val(clicked).css('color', '#000');
    }
-  })
+  });
 });
+//  $("fas fa-edit").click(function () {
+//    let clicked = $(this).attr('map_id');
+//    if (clicked === true){
+
+//    }
+
