@@ -4,9 +4,9 @@ const router  = express.Router();
 
 
 module.exports = (db) => {
+
   router.get("/", (req, res) => {
     req.session.user_id = 2;
-    console.log(req.session);
     res.render("index");
   });
 
@@ -30,6 +30,55 @@ module.exports = (db) => {
 
   router.get('/profile', (req, res) => {
     res.render("profile")
+  })
+
+  router.get('/my-favorites', (req, res) => {
+    const user_id = req.session.user_id;
+    db.getAllUserFavoriteMaps(user_id)
+      .then(maps => {
+        let arr = [];
+        for (const map of maps) {
+          arr.push(db.getMarkersForMap(map.id));
+        }
+        Promise.all(arr).then((values) => {
+          for (let i = 0; i < values.length; i++) {
+            maps[i]['markers'] = values[i];
+          }
+          res.json(maps);
+        })
+      });
+  })
+  router.get('/my-maps', (req, res) => {
+    const user_id = req.session.user_id;
+    db.getAllUserMaps(user_id)
+      .then(maps => {
+        let arr = [];
+        for (const map of maps) {
+          arr.push(db.getMarkersForMap(map.id));
+        }
+        Promise.all(arr).then((values) => {
+          for (let i = 0; i < values.length; i++) {
+            maps[i]['markers'] = values[i];
+          }
+          res.json(maps);
+        })
+      })
+  })
+  router.get('/my-contributions', (req, res) => {
+    const user_id = req.session.user_id;
+    db.getAllUserMarkers(user_id)
+      .then(maps => {
+        let arr = [];
+        for (const map of maps) {
+          arr.push(db.getMarkersForMap(map.id));
+        }
+        Promise.all(arr).then((values) => {
+          for (let i = 0; i < values.length; i++) {
+            maps[i]['markers'] = values[i];
+          }
+          res.json(maps);
+        })
+      })
   })
 
   router.get('/create', (req, res) => {
