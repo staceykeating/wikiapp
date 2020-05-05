@@ -9,12 +9,6 @@
 
   <title>Wiki Map</title>
   <style>
-    .maps {
-      height: 30vw;
-      width: 40vw;
-      border-radius: 10px;
-      box-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
-    }
   </style>
 </head>
 <header>
@@ -23,25 +17,14 @@
 <body>
   <main class="mapbox">
     <div class="column">
-    <h1>Browse All Maps</h1>
-    <div class="column">
-    <h2>BREWERIES </h2>
-    <img src="https://www.asheya.com/wp-content/uploads/2018/03/Google-Map-Vancouver.jpg">
-        <div class="icons"><button type="submit" i class="fas fa-heart" action="/create" method="POST"></i></button>
-          <button type="submit" i class="fas fa-edit" action="/edit" method="POST"></i></button></div>    <div class="column">
-      <div class="column">
-        <h2>BREWERIES </h2>
-        <img src="https://www.asheya.com/wp-content/uploads/2018/03/Google-Map-Vancouver.jpg">
-        <div class="icons"><button type="submit" i class="fas fa-heart" action="/create" method="POST"></i></button>
-          <button type="submit" i class="fas fa-edit" action="/edit" method="POST"></i></button></div>
-          <div class="column">
-            <h2>BREWERIES </h2>
-            <img src="https://www.asheya.com/wp-content/uploads/2018/03/Google-Map-Vancouver.jpg">
-            <div class="icons"><button type="submit" i class="fas fa-heart" action="/create" method="POST"></i></button>
-              <button type="submit" i class="fas fa-edit" action="/edit" method="POST"></i></button></div>
+    <h1>See what others have created!</h1>
+
+    <div id="maps_container"></div>
+
+    </div>
 
   </main>
-  <div id="maps_container">
+
 
   </div>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.min.js"></script>

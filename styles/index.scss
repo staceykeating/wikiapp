@@ -21,13 +21,22 @@ button.fas.fa-edit {
   justify-content: space-around;
 }
 
-.icons {
+.icon {
+  display: flex;
   justify-content: flex-end;
   text-align: end;
   margin-right: 15vw;
+  margin-top: 20px;
+  margin-bottom: 7vw;
 }
 
 .column {
+  flex: 33.33%;
+  flex-direction: column;
+  padding: 5px;
+  text-align: center;
+}
+.maps_container {
   flex: 33.33%;
   flex-direction: column;
   padding: 5px;
@@ -56,11 +65,15 @@ body {
   text-align: center;
 }
 
-
-
-
-img {
+.maps {
   width: 70vw;
+  height: 32vw;
+  border-radius: 10px;
+  box-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
+  justify-content: center;
+  justify-items: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 h3 {
