@@ -20,25 +20,27 @@ const getMarkersForMap = function(map) {
   exports.getMarkersForMap = getMarkersForMap;
 
 //gets the favourite maps for one user
-  const getAllUserFavouriteMaps = function(user_id) {
+  const getAllUserFavoriteMaps = function(user_id) {
     return db.query(`
     SELECT maps.* FROM favorites
     JOIN users ON favorites.user_id = users.id
     JOIN maps ON favorites.map_id = maps.id
-    WHERE users.id = $1;
+    WHERE users.id = $1
+    LIMIT 3;
     `, [user_id])
 //returns multiple maps
     .then(res => (res.rows))
     .catch(error => (error));
   }
-  exports.getAllUserFavouriteMaps = getAllUserFavouriteMaps;
+  exports.getAllUserFavoriteMaps = getAllUserFavoriteMaps;
 
 // get all maps that belong to a user
   const getAllUserMaps = function(user) {
     return db.query(`
-    SELECT * FROM maps
+    SELECT maps.* FROM maps
     JOIN users ON users.id = maps.creator_id
-    WHERE users.id = $1;
+    WHERE users.id = $1
+    LIMIT 3;
     `, [user])
 //returns multiple maps
     .then(res => (res.rows))
@@ -47,13 +49,14 @@ const getMarkersForMap = function(map) {
   exports.getAllUserMaps = getAllUserMaps;
 
 // all markers for one user on their respective maps
- const getAllUserMarkers = function(user) {
+ const getAllUserMarkers = function(user_id) {
     return db.query(`
-    SELECT * FROM markers
-    JOIN users ON users.id = markers.creator_id
-    JOIN maps ON maps.id = map_id
-    WHERE users.id = $1
-    `, [user])
+    SELECT maps.id, maps.map_title, maps.description
+    FROM maps 
+    JOIN markers ON markers.map_id = maps.id
+    WHERE markers.creator_id = $1
+    GROUP BY maps.id;
+    `, [user_id])
 
 //returns multiple maps
     .then(res => (res.rows))
