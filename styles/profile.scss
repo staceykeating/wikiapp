@@ -1,9 +1,21 @@
-a.fa-heart, a.fas-heart {
+button.fas.fa-heart {
   color:  #f08080;
   font-weight: 800;
   text-decoration: none;
   font-size: large;
+  border: none;
+  background-color: none;
 }
+
+button.fas.fa-edit {
+  color: #398039;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: large;
+  border: none;
+  background-color: none;
+}
+
 a.fa, a.fas :focus {
   color: black;
   font-weight: 500;
@@ -40,7 +52,7 @@ a.fa, a.fas :focus {
   justify-content: center;
   margin-top: 15vw;
 
-  }
+}
 
 
 body {
@@ -58,8 +70,6 @@ body {
 }
 
 
-
-
 img {
   width: 300px;
   height: 300px;
@@ -68,5 +78,5 @@ img {
 }
 
 h3 {
-  text-align: center
+  text-align: center;
 }

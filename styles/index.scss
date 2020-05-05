@@ -1,8 +1,19 @@
-.fa, .fas {
-  color: black;
-  font-weight: 500;
-  font-size: x-large;
+button.fas.fa-heart {
+  color:  #f08080;
+  font-weight: 800;
   text-decoration: none;
+  font-size: x-large;
+  border: none;
+  background-color: none;
+}
+
+button.fas.fa-edit {
+  color: #398039;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: x-large;
+  border: none;
+  background-color: none;
 }
 
 .row {
