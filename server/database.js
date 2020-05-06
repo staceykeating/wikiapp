@@ -22,10 +22,9 @@ const getMarkersForMap = function(map) {
 //gets the favourite maps for one user
   const getAllUserFavoriteMaps = function(user_id) {
     return db.query(`
-    SELECT maps.* FROM favorites
-    JOIN users ON favorites.user_id = users.id
-    JOIN maps ON favorites.map_id = maps.id
-    WHERE users.id = $1
+    SELECT maps.* FROM maps 
+    JOIN favorites ON map_id = maps.id
+    WHERE favorites.user_id = $1
     LIMIT 3;
     `, [user_id])
 //returns multiple maps
@@ -94,4 +93,12 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
     .catch(error => (error));
   }
   exports.addMap = addMap;
-
+//returns map for map id
+  const getMapById =  function(map_id) {
+    return db.query(`
+    SELECT * FROM maps WHERE id = $1;
+    `,[map_id] )
+    .then(res => (res.rows[0]))
+    .catch(error => (error));
+  }
+  exports.getMapById = getMapById;

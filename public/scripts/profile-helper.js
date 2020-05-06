@@ -1,13 +1,14 @@
-const createMap = function(maps, class) {
+const createMap = function(maps, container) {
   for (const map of maps) {
-    initialize(map, class);
+    initialize(map, container);
   }
 };
 
 const loadFavoriteMaps = function() {
   $.getJSON('/my-favorites')
   .then(function(maps) {
-    createMap(maps, 'favorites-container');
+    console.log(maps);
+    createMap(maps, 'my-favorites-container');
   })
 };
 
@@ -25,6 +26,10 @@ const loadMyContributions = function() {
   })
 }
 
-loadFavoriteMaps();
-loadMyMaps();
-loadMyContributions();
+$(document).ready(() => {
+  loadFavoriteMaps();
+  loadMyMaps();
+  loadMyContributions();
+});
+
+
