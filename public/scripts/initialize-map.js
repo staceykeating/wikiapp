@@ -2,10 +2,13 @@ let _map;
 const initialize = function(map, container) {
     // creates a class for this particular map
     const newDiv = `map_${map.id}`;
-    const newMapTemplate= `<h2>${map.map_title}</h2> <div class="maps ${newDiv}"></div>
+    const newMapTemplate= `<div class="column"> <div class="maps ${newDiv}"></div>
     <div class="icon">
+    <h2>${map.map_title}</h2>
+    <div class="row">
       <form method="POST" action="/create"><button type="submit" i class="fas fa-heart"></i></button></form>
-      <form method="POST" action="${map.id}/edit"><button type="submit" i class="fas fa-edit"></i></button></form></div>`;
+      <form method="POST" action="${map.id}/edit"><button type="submit" i class="fas fa-edit"></i></button></form></div></div>
+      </div>`;
 
 
     // appends a new div with the newDiv class for this particular map to live

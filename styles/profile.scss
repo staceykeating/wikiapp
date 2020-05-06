@@ -24,31 +24,49 @@ a.fa, a.fas :focus {
 .maprow {
   display: flex;
   justify-content: space-around;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  margin-bottom: 10vw;
+
 }
 
-.icons {
-  justify-content: flex-end;
-  text-align: end;
-  margin-right: 4vw;
-  color: black;
-  font-weight: 500;
-  text-decoration: none;
+.my-favorites-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 5vw;
+  margin-right: 5vw;
+
+
+
 }
+.my-maps-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 5vw;
+  margin-right: 5vw;
+
+}
+
+.my-contributions-container {
+  display: flex;
+  margin-left: 11vw;
+  margin-right: 12vw;
+  margin-bottom: 10vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: inherit;
+
+
+}
+
 
 
 
 .column {
   flex: 33.33%;
   flex-direction: column;
-  padding: 5px;
+  padding: 2vw;
   text-align: center;
 }
 
 .mainbox {
-
   justify-content: center;
   margin-top: 15vw;
 
@@ -56,8 +74,9 @@ a.fa, a.fas :focus {
 
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
+  color: #4b82c6;
  }
 
 
@@ -71,12 +90,89 @@ body {
 
 
 .maps {
-  width: 300px;
-  height: 300px;
-  justify-content: space-between;
-  object-fit: cover;
+  width: 20vw;
+  height: 20vw;
+  border-radius: 10px;
+  box-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
+  justify-content: center;
+  justify-items: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-h3 {
-  text-align: center;
+h2 {
+     text-align: center;
+    font-size: larger;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 3em;
+}
+.icon {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1vw;
+}
+
+.row {
+  display: inline-flex;
+  margin-top: 1vw;
+}
+
+
+
+
+
+.my-contributions-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+.my-contributions-container::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+.my-contributions-container::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #4b82c6;
+}
+
+
+.my-favorites-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+.my-favorites-container::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+.my-favorites-container::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #4b82c6;
+}
+
+///
+.my-favorites-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+.my-favorites-container::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+.my-favorites-container::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #4b82c6;
 }
