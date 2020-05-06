@@ -1,4 +1,6 @@
 let _map;
+let submitMarker;
+
 const initialize = function(map, container) {
     // creates a class for this particular map
     const newDiv = `map_${map.id}`;
@@ -8,19 +10,20 @@ const initialize = function(map, container) {
     <div class="row">
       <form method="POST" action="/create"><button type="submit" i class="fas fa-heart"></i></button></form>
       <form method="POST" action="${map.id}/edit"><button type="submit" i class="fas fa-edit"></i></button></form></div></div>
-      </div>`;
+    </div>`;
 
 
     // appends a new div with the newDiv class for this particular map to live
     $(`.${container}`).append(newMapTemplate);
     // creates an instance of a map
+
     _map = new google.maps.Map($(`.${newDiv}`)[0], {
       center: {lat: 49.2827, lng: -123.1207}, // all maps are of vancouver
       zoom: 12,
       disableDefaultUI: true
     });
 
-    const markers = map.markers;
+    let markers = map.markers;
 
     for (const marker of markers) {
 
@@ -39,4 +42,69 @@ const initialize = function(map, container) {
         infowindow.open(_map, _marker)
       });
     }
+
+    if (container === 'mapbox') {
+
+      // Create the search box and link it to the UI element.
+      let input = /** @type {HTMLInputElement} */(
+      document.getElementById('pac-input'));
+      //  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+      let markers = [];
+      let searchBox = new google.maps.places.SearchBox(
+      /** @type {HTMLInputElement} */(input));
+
+      // [START region_getplaces]
+      // Listen for the event fired when the user selects an item from the
+      // pick list. Retrieve the matching places for that item.
+      google.maps.event.addListener(searchBox, 'places_changed', function () {
+      let places = searchBox.getPlaces();
+
+      if (places.length == 0) {
+        return;
+      }
+
+      for (let i = 0, marker; marker = markers[i]; i++) {
+        marker.setMap(null);
+      }
+      markers = [];
+
+      // For each place, get the icon, place name, and location.
+      markers = [];
+      let bounds = new google.maps.LatLngBounds();
+      for (let i = 0, place; place = places[i]; i++) {
+
+      // Create a marker for each place.
+      let marker = new google.maps.Marker({
+        map: _map,
+        title: place.name,
+        position: place.geometry.location
+      });
+
+      console.log(marker.position.lat());
+      console.log(marker.position.lng());
+      console.log(marker.title);
+
+      $('#longitude').val(marker.position.lng());
+      $('#latitude').val(marker.position.lat());
+
+      markers.push(marker);
+
+      bounds.extend(place.geometry.location);
+      }
+
+        _map.fitBounds(bounds);
+      });
+  // [END region_getplaces]
+
+  // Bias the SearchBox results towards places that are within the bounds of the
+  // current map's viewport.
+      google.maps.event.addListener(_map, 'bounds_changed', function () {
+        let bounds = _map.getBounds();
+        searchBox.setBounds(bounds);
+      });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+
 };

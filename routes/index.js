@@ -5,6 +5,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
+
   router.get("/", (req, res) => {
     // Hardcoded user_id as there is no authentication process
     req.session.user_id = 2;
@@ -94,7 +95,7 @@ module.exports = (db) => {
           res.json(maps);
         })
       })
-   
+
   })
 
   router.get('/create', (req, res) => {
@@ -123,6 +124,7 @@ module.exports = (db) => {
 
   router.get('/map_show/:map_id', (req, res) => {
     const map_id = req.params.map_id;
+
     db.getMapById(map_id)
     .then(map => {
       db.getMarkersForMap(map.id)
@@ -141,6 +143,13 @@ module.exports = (db) => {
       })
     })
 
+
+
+    router.post('/map_show/:map_id', (req, res) => {
+      const map_id = req.params.map_id;
+      console.log('body',req.body);
+      res.redirect(`/map_show/${map_id}`);
+    });
 
   return router;
 };

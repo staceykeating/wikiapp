@@ -1,13 +1,13 @@
-const express = require('express');
-const router  = express.Router();
+// const express = require('express');
+// const router  = express.Router();
 
 
-  module.exports = (db) => {
+//   module.exports = (db) => {
 
-    
-    router.get("/profile", (req, res) => {
-      res.render("urls_profile");
-    });
-    return router;
-  };
+
+//     router.get("/profile", (req, res) => {
+//       res.render("urls_profile");
+//     });
+//     return router;
+//   };
 

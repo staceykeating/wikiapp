@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="../styles/edits.css">
   <title>Wiki Map</title>
-  <script>
+  <script id="vars">
     const mapJson = <%- JSON.stringify(mapJson) %>
   </script>
 </head>
@@ -16,15 +16,15 @@
     <div class="column">
     <div class="createbox">
       <h2>Mark the Spot</h2>
-      <form id="create-marker" action="/map/:map_id" method="POST">
-        <input type="text" placeholder="Search">
-      </form>
-      <form>
+      <form action="/map_show/<%= mapJson.id %>" method="POST">
+        <input id="pac-input" class="controls" name="name" type="text" placeholder="Search Box">
+        <input id="longitude" name="lng">
+        <input id="latitude" name="lat">
         <div>
-        <input type="text" id="description" placeholder="Describe your marker">
+          <input type="text" name="description" id="marker.description" placeholder="Describe your marker">
         </div>
         <div>
-          <input type="text" id="url" placeholder="Add image URL">
+          <input type="text" name="image_url" id="marker.image_url" placeholder="Add thumbnail URL">
         </div>
         <button type="submit">Add</button>
       </form>
@@ -44,13 +44,19 @@
       </ul>
     </div>
     </div>
+<!--
+
+-->
     <div class="mapbox">
+      <h2><%= mapJson.map_title%></h2>
+      <h4><%= mapJson.descrition%></h4>
+
     <!-- <h3>Name of Map</h3>
     <img src= "https://www.asheya.com/wp-content/uploads/2018/03/Google-Map-Vancouver.jpg"> -->
   </div>
   </main>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA&libraries=places"></script>
   <script src="/scripts/initialize-map.js"></script>
   <script src="/scripts/show-map-helper.js"></script>
 </div>
