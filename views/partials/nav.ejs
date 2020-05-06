@@ -1,16 +1,17 @@
 
 <head>
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap" rel="stylesheet">
+  <link href=“https://fonts.googleapis.com/css?family=Anton|Montserrat|Raleway&display=swap” rel=“stylesheet”>
 </head>
 <header>
   <nav id="navbar" role="navigation">
-    <a class="navbar-name" href="/">Wiki Maps</a>
-    <span class="header">
-      <a class="profile" href="/profile">
-        <=% users.id %>'s Maps
-      </a>
+    <div class="navbar-title">
+    <a class="navbar-name" href="/">mapamundi</a>
+    <span class="subheading">Explore Vancouver</span>
+    </div>
+    <div class="header">
+      <a class="profile" href="/profile"><%= userName %>'s Maps</a>
       <a class="create" href="/create">Create Map</a>
-    </span>
+    </div>
   </nav>
 </header>
