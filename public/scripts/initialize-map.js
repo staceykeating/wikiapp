@@ -5,7 +5,7 @@ const initialize = function(map, container) {
     const newMapTemplate= `<h2>${map.map_title}</h2> <div class="maps ${newDiv}"></div>
     <div class="icon">
       <form method="POST" action="/create"><button type="submit" i class="fas fa-heart"></i></button></form>
-      <form method="POST" action="/edit"><button type="submit" i class="fas fa-edit"></i></button></form></div>`;
+      <form method="POST" action="${map.id}/edit"><button type="submit" i class="fas fa-edit"></i></button></form></div>`;
 
 
     // appends a new div with the newDiv class for this particular map to live

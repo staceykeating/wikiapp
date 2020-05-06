@@ -79,6 +79,7 @@ module.exports = (db) => {
           res.json(maps);
         })
       })
+   
   })
 
   router.get('/create', (req, res) => {
@@ -95,18 +96,17 @@ module.exports = (db) => {
 
   router.post('/:map_id/edit', (req, res) => {
     const map_id = req.params.map_id;
-    res.redirect(`/map_show/:${map_id}`,)
+    res.redirect(`/map_show/${map_id}`,)
   });
 
-  router.get('/map_show', (req, res) => {
+  router.get('/map_show/:map_id', (req, res) => {
     const map_id = req.params.map_id;
     db.getMapById(map_id)
     .then(map => {
       db.getMarkersForMap(map.id)
         .then(markers => {
           map['markers'] = markers;
-          map
-          res.json(map);
+          res.render('edits',{ mapJson: map });
         })
       })
     })

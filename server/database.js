@@ -22,10 +22,9 @@ const getMarkersForMap = function(map) {
 //gets the favourite maps for one user
   const getAllUserFavoriteMaps = function(user_id) {
     return db.query(`
-    SELECT maps.* FROM favorites
-    JOIN users ON favorites.user_id = users.id
-    JOIN maps ON favorites.map_id = maps.id
-    WHERE users.id = $1
+    SELECT maps.* FROM maps 
+    JOIN favorites ON map_id = maps.id
+    WHERE favorites.user_id = $1
     LIMIT 3;
     `, [user_id])
 //returns multiple maps

@@ -11,6 +11,8 @@ const loadMaps = function() {
   })
 }
 
-loadMaps();
+$(document).ready(() => {
+  loadMaps();
+});
 
 

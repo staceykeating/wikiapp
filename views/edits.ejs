@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="../styles/edits.css">
-
-
   <title>Wiki Map</title>
+  <script>
+    const mapJson = <%- JSON.stringify(mapJson) %>
+  </script>
 </head>
 <body>
    <%- include('partials/nav') %>
@@ -48,6 +49,10 @@
     <img src= "https://www.asheya.com/wp-content/uploads/2018/03/Google-Map-Vancouver.jpg"> -->
   </div>
   </main>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA"></script>
+  <script src="/scripts/initialize-map.js"></script>
+  <script src="/scripts/show-map-helper.js"></script>
 </div>
 </body>
 </html>
