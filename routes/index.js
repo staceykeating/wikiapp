@@ -79,7 +79,7 @@ module.exports = (db) => {
           res.json(maps);
         })
       })
-   
+
   })
 
   router.get('/create', (req, res) => {
@@ -115,7 +115,3 @@ module.exports = (db) => {
   return router;
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
