@@ -6,8 +6,16 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
+    // Hardcoded user_id as there is no authentication process
     req.session.user_id = 2;
-    res.render("index");
+    const user_id = req.session.user_id;
+    db.getUserById(user_id)
+      .then(user => {
+        const templateVars = {
+          userName: user.name
+        }
+        res.render("index", templateVars);
+      });
   });
 
   router.get('/maps', (req, res) => {
@@ -29,7 +37,14 @@ module.exports = (db) => {
 
 
   router.get('/profile', (req, res) => {
-    res.render("profile")
+    const user_id = req.session.user_id;
+    db.getUserById(user_id)
+      .then(user => {
+        const templateVars = {
+          userName: user.name
+        }
+        res.render("profile", templateVars);
+      });
   })
 
   router.get('/my-favorites', (req, res) => {
@@ -83,7 +98,14 @@ module.exports = (db) => {
   })
 
   router.get('/create', (req, res) => {
-    res.render("create")
+    const user_id = req.session.user_id;
+    db.getUserById(user_id)
+      .then(user => {
+        const templateVars = {
+          userName: user.name
+        }
+        res.render("create", templateVars);
+      });
   })
 
   router.post('/create', (req, res) => {
@@ -106,7 +128,15 @@ module.exports = (db) => {
       db.getMarkersForMap(map.id)
         .then(markers => {
           map['markers'] = markers;
-          res.render('edits',{ mapJson: map });
+          const user_id = req.session.user_id;
+          db.getUserById(user_id)
+            .then(user => {
+              const templateVars = {
+                userName: user.name,
+                mapJson: map
+              }
+              res.render('edits', templateVars);
+            });
         })
       })
     })

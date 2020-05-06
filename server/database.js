@@ -8,6 +8,18 @@ const db = new Pool(dbParams);
 db.connect();
 
 //all info about markers on a map
+
+const getUserById = function(user_id) {
+  return db.query(`
+  SELECT * FROM users
+  WHERE id = $1;
+  `, [user_id])
+  
+  .then(res => res.rows[0])
+  .catch(error => error);
+}
+  exports.getUserById = getUserById;
+
 const getMarkersForMap = function(map) {
   return db.query(`
   SELECT * FROM markers

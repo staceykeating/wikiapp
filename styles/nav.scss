@@ -1,42 +1,81 @@
 #navbar {
-  background-color: #aadafb;
+  background-color: #1578bd;// #aadafb;
   position: fixed;
   top: 0;
   left: 0px;
   right: 0px;
-  height: 120px;
-  width: 100vw;
+  height: 100px;
+  width: 100%;
   z-index: 9999;
-  padding:1.5em;
-  margin: auto;
+  padding: 0.8em;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
 }
 /* Navbar links */
+
+.navbar-title {
+  display: inline-block;
+  padding-left: 7em;
+  padding-bottom: 20px
+}
+
 .navbar-name {
-  padding-top: inherit;
-  font-size: 60px;
-  color: whitesmoke;
-  font-family: 'Bungee Shade', cursive;
+  display: block;
+  font-size: 52px;
+  color: white;
+  font-family: 'Dancing Script', cursive;
   text-decoration: none;
-  padding-right: 20px;
+  width: 300px;
+}
+
+.subheading {
+  display: block;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.5rem;
+  font-weight: 300;
+  width: 100%;
+  color: white;
+}
+
+.header {
+  text-align: right;
+  width: 70%;
+  padding-top: 40px;
 }
 
 .header .profile {
-  font-size: 17px;
-  color: whitesmoke;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 22px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: white;
   border: none;
-  display: inline-block;
   text-decoration: none;
-
+  text-align: center;
+  margin-right: 40px;
+  padding-bottom: 10px;
+  letter-spacing: 0.2em;
 }
+
+.header .profile:hover {
+  border-bottom: 2px solid white;
+}
+
 .header .create {
-  font-size: 17px;
-  color: whitesmoke;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 22px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: white;
   border: none;
-  display: inline-block;
   text-decoration: none;
-  padding-left: 10px;
+  text-align: center;
+  padding-bottom: 10px;
+  letter-spacing: 0.3em;
 }
 
-
+.header .create:hover {
+  border-bottom: 2px solid white;
+}
