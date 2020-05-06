@@ -1,5 +1,5 @@
 #navbar {
-  background-color: #1578bd;// #aadafb;
+  background-color: #1578bd;//#1578bd; #aadafb;
   position: fixed;
   top: 0;
   left: 0px;
@@ -8,7 +8,7 @@
   width: 100%;
   z-index: 9999;
   padding: 0.8em;
-  opacity: 0.9;
+  opacity: 0.8;
   display: flex;
   align-items: center;
 }
@@ -22,9 +22,10 @@
 
 .navbar-name {
   display: block;
-  font-size: 52px;
+  font-size: 57px;
   color: white;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Anton', sans-serif;
+  font-weight: 500;
   text-decoration: none;
   width: 300px;
 }
@@ -37,6 +38,7 @@
   font-weight: 300;
   width: 100%;
   color: white;
+  text-align: center;
 }
 
 .header {
