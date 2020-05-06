@@ -17,7 +17,8 @@
   .mainbox {
 
     justify-content: center;
-    margin-top: 15vw;
+    margin-top: 10vw;
+
 
     }
 
@@ -28,9 +29,13 @@
     }
 
    .maps {
-      width: 40vw;
-      height: 40vw  ;
+      width: 60vw;
+      height: 35vw  ;
       justify-content: space-between;
+      border-radius: 10px;
+      box-shadow: 6px 6px 30px -4px rgba(56, 56, 56, 0.72);
+      margin-right: auto;
+      margin-left: auto;
     }
 
 ul {
@@ -38,17 +43,39 @@ ul {
 }
 
 .markerbox {
-  background-color: lightgrey;
-  width: 35vw;
-}
-
-.createbox {
-  background-color: lightgrey;
-  width: 35vw;
+  color: white;
+  background-color: #1578bd;
+  width: 25vw;
+  border-radius: 1em;
+  text-align: center;
+  border-style: double;
 }
 
 .mapbox {
-  background-color: lightgrey;
+  margin-top: 5vw;
+}
+
+.createbox {
+  margin-top: 5vw;
+  font-family: 'Open Sans Condensed', sans-serif;
+  width:20vw;
+  display:block;
+  background:#FFF;
+  padding:10px 50px 50px;
+  text-align: center;
+
+}
+
+h2 {
+color: #2b2b2b;
+font-family: 'Raleway', sans-serif;
+text-align: center;
+}
+
+h4 {
+color:  #2b2b2b;
+font-family: 'Raleway', sans-serif;
+text-align: center;
 }
 
 /////// search bar stuff
@@ -61,22 +88,18 @@ html, body, #map {
   margin-top: 16px;
   border: 1px solid transparent;
   border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
   -moz-box-sizing: border-box;
-  height: 32px;
   outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 #pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 20vw;
+background-color: #fff;
+text-overflow: ellipsis;
+font-size:18px;
+padding:10px 10px 10px 5px;
+width:20vw;
+border:none;
+border-bottom:1px solid #757575;
 }
 
 #pac-input:focus {
@@ -103,3 +126,34 @@ html, body, #map {
 .icon {
   display: none;
 }
+
+input {
+font-size:18px;
+padding:10px 10px 10px 5px;
+display:block;
+width:20vw;
+border:none;
+border-bottom:1px solid #757575;
+text-align: center;
+}
+
+input:focus{
+  outline:none;
+  }
+
+button {
+  margin-top: 20px;
+  color: #0f578a;
+  border: 2px solid #0f578a;
+  width: 13vw;
+  height: 3vw;
+  font-size: 1.5vw;
+  border-radius: .5vw;
+  justify-content: center;
+  }
+
+  button:hover {
+    background: #0f578a;
+    font-weight: bolder;
+    color: white;
+    }

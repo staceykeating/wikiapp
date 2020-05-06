@@ -147,8 +147,27 @@ module.exports = (db) => {
 
     router.post('/map_show/:map_id', (req, res) => {
       const map_id = req.params.map_id;
-      console.log('body',req.body);
-      res.redirect(`/map_show/${map_id}`);
+      const marker = {
+        marker_title: req.body.title,
+        description: req.body.description,
+        image_url: req.body.image_url,
+        longitude: req.body.lng,
+        latitude: req.body.lat,
+        map_id: req.params.map_id,
+        creator_id: req.session.user_id
+      }
+      console.log(marker);
+      db.addMarker(marker)
+      .then(() => {
+        res.redirect(`/map_show/${map_id}`);
+      });
+    });
+
+    router.post('/map_show/:map_id/DELETE', (req, res) => {
+      console.log(typeof req.body.marker_id)
+      db.deleteMarker(req.body.marker_id).then(() => {
+        res.redirect(`/map_show/${req.params.map_id}`);
+      });
     });
 
   return router;

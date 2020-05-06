@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="../styles/edits.css">
-  <title>Wiki Map</title>
+  <title>mapumundi</title>
+  <link href=“https://fonts.googleapis.com/css?family=Anton|Montserrat|Raleway&display=swap” rel=“stylesheet”>
   <script id="vars">
     const mapJson = <%- JSON.stringify(mapJson) %>
   </script>
@@ -15,33 +16,32 @@
     <div class="row">
     <div class="column">
     <div class="createbox">
-      <h2>Mark the Spot</h2>
       <form action="/map_show/<%= mapJson.id %>" method="POST">
-        <input id="pac-input" class="controls" name="name" type="text" placeholder="Search Box">
+        <input id="pac-input" class="controls" name="name" type="text" placeholder="Search Something">
         <input type="hidden" id="longitude" name="lng">
         <input type="hidden" id="latitude" name="lat">
+        <input type="hidden" id="title" name="title">
         <div>
-          <input type="text" name="description" id="marker.description" placeholder="Describe your marker">
+          <input type="text" name="description" id="description" placeholder="Describe your marker">
         </div>
         <div>
-          <input type="text" name="image_url" id="marker.image_url" placeholder="Add thumbnail URL">
+          <input type="text" name="image_url" id="image_url" placeholder="Add thumbnail URL">
         </div>
         <button type="submit">Add</button>
       </form>
     </div>
     <div class="markerbox">
       <h2>Markers</h2>
-      <ul>
-        <h4>MarkerName</h4>
-        <p>include marker from db for marker_id</p>
-        <button class="delete" type="button">⦻</button>
-        <h4>MarkerName</h4>
-        <p>include marker from db for marker_id</p>
-        <button class="delete" type="button">⦻</button>
-        <h4>MarkerName</h4>
-        <p>include marker from db for marker_id</p>
-        <button class="delete" type="button">⦻</button>
-      </ul>
+      <% const reverseMarkers = mapJson.markers.reverse()
+       for (const marker of reverseMarkers) { %>
+        <h4><%= marker.marker_title %></h4>
+        <p><%= marker.description %></p>
+        <img src="<%= marker.image_url %>">
+        <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST">
+          <input type="hidden" name="marker_id" value="<%= marker.id %>">
+          <button class="delete" type="submit">⦻</button>
+        </form>
+      <% } %>
     </div>
     </div>
 <!--
@@ -49,7 +49,7 @@
 -->
     <div class="mapbox">
       <h2><%= mapJson.map_title%></h2>
-      <h4><%= mapJson.descrition%></h4>
+      <h4><%= mapJson.description%></h4>
 
     <!-- <h3>Name of Map</h3>
     <img src= "https://www.asheya.com/wp-content/uploads/2018/03/Google-Map-Vancouver.jpg"> -->

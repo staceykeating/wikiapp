@@ -84,6 +84,7 @@ const initialize = function(map, container) {
       console.log(marker.position.lng());
       console.log(marker.title);
 
+      $('#title').val(marker.title);
       $('#longitude').val(marker.position.lng());
       $('#latitude').val(marker.position.lat());
 

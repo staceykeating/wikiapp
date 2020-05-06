@@ -14,7 +14,7 @@ const getUserById = function(user_id) {
   SELECT * FROM users
   WHERE id = $1;
   `, [user_id])
-  
+
   .then(res => res.rows[0])
   .catch(error => error);
 }
@@ -34,7 +34,7 @@ const getMarkersForMap = function(map) {
 //gets the favourite maps for one user
   const getAllUserFavoriteMaps = function(user_id) {
     return db.query(`
-    SELECT maps.* FROM maps 
+    SELECT maps.* FROM maps
     JOIN favorites ON map_id = maps.id
     WHERE favorites.user_id = $1
     LIMIT 3;
@@ -63,7 +63,7 @@ const getMarkersForMap = function(map) {
  const getAllUserMarkers = function(user_id) {
     return db.query(`
     SELECT maps.id, maps.map_title, maps.description
-    FROM maps 
+    FROM maps
     JOIN markers ON markers.map_id = maps.id
     WHERE markers.creator_id = $1
     GROUP BY maps.id;
@@ -89,8 +89,8 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
   //add new marker to database
   const addMarker =  function(marker) {
     return db.query(`INSERT INTO markers
-    (marker_title, description, image, longitude, latitude, map_id, creator_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-    [marker.marker_title, marker.description, marker.image, marker.longitude, marker.latitude, marker.map_id, marker.creator_id])
+    (marker_title, description, image_url, longitude, latitude, map_id, creator_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *;`,
+    [marker.marker_title, marker.description, marker.image_url, marker.longitude, marker.latitude, marker.map_id, marker.creator_id])
     .then(res => (res.rows))
     .catch(error => (error));
   }
@@ -114,3 +114,20 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
     .catch(error => (error));
   }
   exports.getMapById = getMapById;
+
+  const addFavorite =  function(user_id, map_id) {
+    return db.query(`INSERT INTO favorites
+    (user_id, map_id) VALUES($1, $2) RETURNING *;`,
+    [map_id, user_id])
+    .then(res => (res.rows[0]))
+    .catch(error => (error));
+  }
+  exports.addFavorite = addFavorite;
+
+const deleteMarker = function(marker_id){
+  return db.query(`DELETE FROM markers
+  WHERE id = $1;`, [marker_id])
+  .then(res => (res.rows[0]))
+  .catch(error => (error));
+}
+exports.deleteMarker = deleteMarker;
