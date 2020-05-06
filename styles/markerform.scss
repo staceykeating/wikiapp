@@ -1,0 +1,127 @@
+
+
+<div class="container">
+
+  <h2>Create a Marker<small>Share your favourite spots</small></h2>
+
+  <form id="create-marker" action="/map/:map_id" method="POST">
+<input type="text" placeholder="Search">
+</form>
+
+    <div class="group">
+      <input type="text" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Marker Title</label>
+    </div>
+
+    <div class="group">
+      <input type="text" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Description</label>
+    </div>
+
+     <div class="group">
+     <input type="text" required id="url">
+     <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Add image URL</label>
+    </div>
+    <button type="submit">Add</button>
+  </form>
+
+
+</div>
+
+
+* { box-sizing:border-box; }
+
+.container 		{
+  font-family: 'Open Sans Condensed', sans-serif;
+  width:600px;
+  margin:30px auto 0;
+  display:block;
+  background:#FFF;
+  padding:10px 50px 50px;
+}
+h2 {
+  text-align:left;
+  margin-bottom:50px;
+  color:#888;
+}
+
+.group {
+  position:relative;
+  margin-bottom:45px;
+}
+input {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus{
+  outline:none;
+}
+
+label {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label {
+  top:-20px;
+  font-size:14px;
+  color:#244751;
+}
+
+/* BOTTOM BARS ================================= */
+.bar{
+  position:relative;
+  display:block;
+  width:300px;
+}
+.bar:before, .bar:after{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#244751;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+button {
+  margin-top: 20px;
+  color: #244751;
+  border: 2px solid #244751;
+  width: 13vw;
+  height: 3vw;
+  font-size: 1.5vw;
+  border-radius: .5vw;
+}
+button:hover {
+  background: #244751;
+  font-weight: bolder;
+  color: white;
+}
