@@ -4,12 +4,17 @@ let submitMarker;
 const initialize = function(map, container) {
     // creates a class for this particular map
     const newDiv = `map_${map.id}`;
-    const newMapTemplate= `<div class="column"> <div class="maps ${newDiv}"></div>
-    <div class="icon">
-    <h2>${map.map_title}</h2>
-    <div class="row">
-      <form method="POST" action="/create"><button type="submit" i class="fas fa-heart"></i></button></form>
-      <form method="POST" action="${map.id}/edit"><button type="submit" i class="fas fa-edit"></i></button></form></div></div>
+    const newMapTemplate= `
+    <div class="column"> <div class="maps ${newDiv}"></div>
+      <div class="icon">
+        <h2>${map.map_title}</h2>
+        <div class="row">
+          <button id="fav-${newDiv}" type="submit" i class="fas fa-heart"></i></button>
+          <form method="POST" action="${map.id}/edit">
+            <button type="submit" i class="fas fa-edit"></i></button>
+          </form>
+        </div>
+      </div>
     </div>`;
 
 
@@ -42,6 +47,23 @@ const initialize = function(map, container) {
         infowindow.open(_map, _marker)
       });
     }
+
+    $(`#fav-${newDiv}`).click(function(event) {
+      event.preventDefault();
+      if ($(`#fav-${newDiv}`).css('font-weight') == 800) {
+        $(`#fav-${newDiv}`).css('font-weight', 500);
+        $.post(`${map.id}/favorites`)
+        .done((data) => {
+          console.log(data);
+        });
+      } else {
+        $(`#fav-${newDiv}`).css('font-weight', 800);
+        $.post(`${map.id}/remove-favorites`)
+        .done((data) => {
+          console.log(data);
+        });
+      }
+    });
 
     if (container === 'mapbox') {
 

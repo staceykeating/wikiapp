@@ -65,7 +65,7 @@ const getMarkersForMap = function(map) {
     SELECT maps.id, maps.map_title, maps.description
     FROM maps
     JOIN markers ON markers.map_id = maps.id
-    WHERE markers.creator_id = $1
+    WHERE markers.creator_id = $1 AND maps.creator_id != $1
     GROUP BY maps.id;
     `, [user_id])
 
@@ -115,19 +115,28 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
   }
   exports.getMapById = getMapById;
 
-  const addFavorite =  function(user_id, map_id) {
+  const addFavorite = function(user_id, map_id) {
     return db.query(`INSERT INTO favorites
     (user_id, map_id) VALUES($1, $2) RETURNING *;`,
-    [map_id, user_id])
+    [user_id, map_id])
     .then(res => (res.rows[0]))
     .catch(error => (error));
   }
   exports.addFavorite = addFavorite;
 
-const deleteMarker = function(marker_id){
-  return db.query(`DELETE FROM markers
-  WHERE id = $1;`, [marker_id])
-  .then(res => (res.rows[0]))
-  .catch(error => (error));
-}
-exports.deleteMarker = deleteMarker;
+  const removeFavorite = function(user_id, map_id) {
+    return db.query(`DELETE FROM favorites
+    WHERE user_id = $1 AND map_id = $2;
+    `, [user_id, map_id])
+    .then(res => res.rows[0])
+    .catch(error => error);
+  }
+  exports.removeFavorite = removeFavorite;
+
+  const deleteMarker = function(marker_id){
+    return db.query(`DELETE FROM markers
+    WHERE id = $1;`, [marker_id])
+    .then(res => (res.rows[0]))
+    .catch(error => (error));
+  }
+  exports.deleteMarker = deleteMarker;
