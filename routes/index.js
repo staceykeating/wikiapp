@@ -20,17 +20,32 @@ module.exports = (db) => {
   });
 
   router.get('/maps', (req, res) => {
+    const user_id = req.session.user_id;
     db.getAllMapsInDatabase()
       .then(maps => {
-        let arr = [];
+        let arrMarkers = [];
         for (const map of maps) {
-          arr.push(db.getMarkersForMap(map.id));
+          arrMarkers.push(db.getMarkersForMap(map.id));
         }
-        Promise.all(arr).then((values) => {
+        Promise.all(arrMarkers).then((values) => {
           for (let i = 0; i < values.length; i++) {
             maps[i]['markers'] = values[i];
           }
-          res.json(maps);
+          let arrFavorites =[];
+          for (const map of maps) {
+            arrFavorites.push(db.checkFavorite(user_id, map.id));
+          }
+          Promise.all(arrFavorites).then((values) => {
+            for (let i = 0; i < values.length; i++) {
+              if (values[i].length > 0) {
+                maps[i]['favorite'] = true;
+              } else {
+                maps[i]['favorite'] = false;
+              }
+            }
+            console.log(maps);
+            res.json(maps);
+          })
         })
       })
   });
@@ -128,8 +143,8 @@ module.exports = (db) => {
     const user_id = req.session.user_id;
     const map_id = req.params.map_id;
     db.checkFavorite(user_id, map_id)
-      .then(res => {
-        if (res.length > 0) {
+      .then(fav => {
+        if (fav.length > 0) {
           db.removeFavorite(user_id, map_id);
           console.log('UNLIKED');
           res.status(201);

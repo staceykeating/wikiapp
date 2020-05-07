@@ -143,8 +143,6 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
   }
   exports.checkFavorite = checkFavorite;
 
-
-
   const deleteMarker = function(marker_id){
     return db.query(`DELETE FROM markers
     WHERE id = $1;`, [marker_id])

@@ -25,6 +25,10 @@ a.fa, a.fas :focus {
   font-weight: 500;
 }
 
+form {
+  display: flex;
+}
+
 .maprow {
   display: flex;
   justify-content: space-around;
