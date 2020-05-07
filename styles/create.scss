@@ -1,15 +1,13 @@
 body {
-background-color: #fafaf2;
+background: white;
 //background-image: url("https://www.transparenttextures.com/patterns/white-texture.png");
 }
 
 .createbox {
-  background-image: url("https://www.transparenttextures.com/patterns/wild-flowers.png");
   display: inline-flexbox;
   justify-content: center;
-  margin-top: 20vw;
+  margin-top: 12vw;
   text-align: center;
-  background-color: #c5e8c5;
   border-radius: 1em;
   margin-left: 23vw;
   margin-right: 23vw;
@@ -24,27 +22,27 @@ background-color: #fafaf2;
 
   h1 {
     margin-bottom: 30px;
-    font-size: 5em;
+    font-size: 3em;
     color: #398039;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .form {
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Raleway', sans-serif;
 
   }
 
 input.form-control {
-  background-image: url("https://www.transparenttextures.com/patterns/wild-flowers.png");
+  background-image: none;
   text-align: center;
   color:  #244751;
   width: 40vw;
   height: 3vw;
   margin: 0.5vw;
   border-style: none;
-  background-color:#c5e8c5;
   font-size: 25px;
   font-weight: 500;
+  line-height: 20px;
 }
 
 :focus{
