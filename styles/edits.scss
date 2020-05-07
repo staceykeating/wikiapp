@@ -65,7 +65,7 @@ ul {
 .markerbox img {
   width: 50px;
   height: 50px;
-  overflow: hidden;
+  overflow: inherit;
   border-radius: 1em;
 }
 
@@ -170,7 +170,10 @@ html, body, #map {
 
 }
 
-
+.fas.fa-trash {
+  font-size: 2vw;
+  display: flex;
+}
 .toggle:hover {
   font-weight: bolder;
 }
