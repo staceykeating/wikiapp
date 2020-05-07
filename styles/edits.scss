@@ -45,14 +45,14 @@ ul {
   flex-direction: column;
   text-align: center;
   color: white;
-  background: linear-gradient(0deg, rgba(106,223,255,1) 0%, rgba(72,147,201,1) 100%);
+  background: linear-gradient(0deg, rgba(124,197,247,1) 0%, rgba(72,147,201,1) 100%);
   width: 25vw;
-  height: 28vw;
+  height: 34vw;
   border-radius: 1em;
   text-align: center;
   padding-top: .5vw;
   padding-bottom: .5vw;
-  margin-top: 9.5vw;
+  margin-top: 5vw;
   box-shadow: 6px 6px 30px -4px rgba(56, 56, 56, 0.72);
   overflow-y: auto;
   white-space: inherit;
@@ -111,7 +111,7 @@ ul {
 
 h2 {
 color: white;
-font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Raleway', sans-serif;
 text-align: center;
 }
 
@@ -153,12 +153,24 @@ html, body, #map {
   outline: none;
 }
 .toggle {
-  display: inline-block;
-  font-size: 3vw;
-  color:  #1578bd;
-  font-family:'Open Sans Condensed', sans-serif;
+  font-size: 2.5vw;
+  justify-content: center;
+  font-family:'Raleway', sans-serif;
+  display: inline-flex;
+  height: 3vw;
+  margin-right: 2vw;
+  border-style: solid;
+  padding: .2em;
+  background: #4893c9;
+  color: white;
+  border-radius: 10px;
+  border-width: 2px;
+  text-align: center;
+  width: 24vw;
 
 }
+
+
 .toggle:hover {
   font-weight: bolder;
 }
@@ -229,8 +241,8 @@ button {
     .column {
       flex: 33.33%;
       flex-direction: column;
-      text-align: center;
-      margin-top: 2vw;
+      text-align: start;
+      margin-top: 3vw;
     }
 
     .markercolumn {
@@ -262,6 +274,7 @@ button {
       margin-right: 2em;
       margin-top: 2em;
       width: 8px;
+      width: 11px;
     }
 
 
@@ -272,11 +285,13 @@ button {
 
     /* Handle */
     .markerbox::-webkit-scrollbar-thumb {
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
-      background: #4b82c6;
-    }
-
+      -webkit-border-radius: 13px;
+      border-top-left-radius: 0;
+      /* border-bottom-left-radius: 0; */
+      border-radius: 12;
+      background: whitesmoke;
+      background-color: white;
+  }
 
 
     @-webkit-keyframes toshiba {
