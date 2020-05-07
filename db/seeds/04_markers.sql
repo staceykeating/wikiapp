@@ -15,11 +15,7 @@ VALUES (1, 1, '33 Acres', 'Best beer in town', 'https://images.pexels.com/photos
 (3, 1, 'Triple O`s', 'Best milkshake and fries combo in town!', 'https://duyt4h9nfnj50.cloudfront.net/resized/1522021605936-w2880-65.jpg', 49.2291589, -123.0241184),
 (4, 1, 'Dollorama', 'Thrifty and stylish', 'https://www.mallmaverick.com/system/site_images/photos/000/045/880/original/Dollarama.jpg?1541799547', 49.2372418, -123.0576842),
 (4, 2, 'Micheal`s', 'Get your craft on', 'https://www.metroweekly.com/wp-content/uploads/2019/06/Michaels-Companies.jpg', 49.2471361, -123.112469),
-<<<<<<< HEAD
-(4, 3, 'Bespoke', 'If you`re wanting to splurge abit!', 'https://i.etsystatic.com/9901142/r/il/5f83fb/1536930533/il_570xN.1536930533_c980.jpg', 49.2483166, -123.0582147),
-=======
 (4, 3, 'Bespoke', 'If you`re wanting to splurge a bit!', 'https://i.etsystatic.com/9901142/r/il/5f83fb/1536930533/il_570xN.1536930533_c980.jpg', 49.2483166, -123.0582147),
->>>>>>> jbranch
 (4, 1, 'A & B Partytime Rentals', 'Got things you want to rent!', 'https://threebestrated.ca/images/ABPartytimeRentalsLtd-Vancouver-BC.jpeg', 49.2490663, -123.1065293),
 (4, 2, 'Dollar Tree', 'Helping you plan on budget', 'https://www.dollartreeinfo.com/system/files-encrypted/nasdaq_kms/inline-images/Dollar-Tree-Storefront%20%283%29.jpg', 49.2372408, -123.066439),
 (5, 3, 'Soft Peaks', 'Softest ice cream around', 'https://lh5.googleusercontent.com/p/AF1QipOus8afNI92xUYvFW6GVdegKoet3NgO1x0-_iMb=w408-h306-k-no', 49.2774288, -123.182817),
