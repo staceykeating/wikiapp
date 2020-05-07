@@ -13,7 +13,7 @@ module.exports = (db) => {
     db.getUserById(user_id)
       .then(user => {
         const templateVars = {
-          userName: user.name
+          currentUser: user
         }
         res.render("index", templateVars);
       });
@@ -43,7 +43,7 @@ module.exports = (db) => {
     db.getUserById(user_id)
       .then(user => {
         const templateVars = {
-          userName: user.name
+          currentUser: user
         }
         res.render("profile", templateVars);
       });
@@ -106,7 +106,7 @@ module.exports = (db) => {
     db.getUserById(user_id)
       .then(user => {
         const templateVars = {
-          userName: user.name
+          currentUser: user
         }
         res.render("create", templateVars);
       });
@@ -152,7 +152,7 @@ module.exports = (db) => {
           db.getUserById(user_id)
             .then(user => {
               const templateVars = {
-                userName: user.name,
+                currentUser: user,
                 mapJson: map
               }
               res.render('edits', templateVars);
@@ -181,10 +181,18 @@ module.exports = (db) => {
       });
     });
 
-    router.post('/map_show/:map_id/DELETE', (req, res) => {
+    router.post('/map_show/:map_id/DELETE/marker', (req, res) => {
       console.log(typeof req.body.marker_id)
       db.deleteMarker(req.body.marker_id).then(() => {
         res.redirect(`/map_show/${req.params.map_id}`);
+      });
+    });
+
+    router.post('/map_show/:map_id/DELETE', (req, res) => {
+      const map_id = req.params.map_id;
+      db.deleteMap(map_id)
+      .then(() => {
+        res.redirect('/profile');
       });
     });
 

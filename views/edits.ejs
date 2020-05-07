@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="../styles/edits.css">
-  <title>mapumundi</title>
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css">
   <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
   <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat|Raleway&display=swap" rel="stylesheet">
   <script id="vars">
     const mapJson = <%- JSON.stringify(mapJson) %>
   </script>
+  <title>mapumundi | <%= mapJson.map_title %></title>
 </head>
 <body>
    <%- include('partials/nav') %>
@@ -40,7 +41,7 @@
       <% const reverseMarkers = mapJson.markers.reverse()
        for (const marker of reverseMarkers) { %>
         <div class="markerrow">
-          <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST">
+          <form action="/map_show/<%= mapJson.id %>/DELETE/marker" method="POST">
             <input type="hidden" name="marker_id" value="<%= marker.id %>">
           <button class="delete" type="submit"><i class="fas fa-trash"></i></button>
         </form>
@@ -48,20 +49,21 @@
         <div class="markercolumn">
         <h4><%= marker.marker_title %></h4>
         <p><%= marker.description %></p></div></div>
-
       <% } %>
     </div>
     </div>
-<!--
-
--->
-    <div class="mapbox">
-      <h2><%= mapJson.map_title%></h2>
-      <h4><%= mapJson.description%></h4>
-
-    <!-- <h3>Name of Map</h3>
-    <img src= "https://www.asheya.com/wp-content/uploads/2018/03/Google-Map-Vancouver.jpg"> -->
-  </div>
+    <div class=mapbox-container>
+      <div class="mapbox">
+        <h2><%= mapJson.map_title%></h2>
+        <h4><%= mapJson.description%></h4>
+      </div>
+      <% if (currentUser.id === mapJson.creator_id) { %>
+        <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST">
+        <button type="submit">DELETE</button>
+        </form>
+      <% } %>
+    </div>
+  
   </main>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA&libraries=places"></script>

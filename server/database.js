@@ -81,7 +81,7 @@ const getMarkersForMap = function(map) {
 
 const getAllMapsInDatabase = function(user_id) {
   return db.query(`
-  SELECT maps.*, COUNT(favorite) AS liked FROM maps 
+  SELECT maps.*, COUNT(favorite) AS liked FROM maps
   LEFT JOIN (SELECT * FROM favorites WHERE user_id = $1) AS favorite  ON map_id = maps.id
   GROUP BY maps.id ORDER BY maps.id;
   `,[user_id])
@@ -140,7 +140,7 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
   exports.removeFavorite = removeFavorite;
 
   const checkFavorite = function(user_id, map_id) {
-    return db.query(`SELECT * 
+    return db.query(`SELECT *
     FROM favorites
     WHERE user_id = $1 AND map_id = $2;
     `, [ user_id, map_id ])
@@ -149,10 +149,10 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
   }
   exports.checkFavorite = checkFavorite;
 
-  const deleteMarker = function(marker_id){
-    return db.query(`DELETE FROM markers
-    WHERE id = $1;`, [marker_id])
+  const deleteMap = function(map_id){
+    return db.query(`DELETE FROM maps
+    WHERE id = $1;`, [map_id])
     .then(res => (res.rows[0]))
     .catch(error => (error));
   }
-  exports.deleteMarker = deleteMarker;
+  exports.deleteMarker = deleteMap;
