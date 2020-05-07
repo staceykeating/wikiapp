@@ -1,3 +1,6 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
 
 .column {
   flex: 33.33%;
@@ -23,8 +26,8 @@
     }
 
     img {
-      width: 40vw;
-      height: 40vw  ;
+      width: 50vw;
+      height: 50vw  ;
       justify-content: space-between;
     }
 
@@ -49,6 +52,14 @@ ul {
   border-radius: 1em;
   text-align: center;
   border-style: double;
+    // display: flex;
+    // margin-left: 11vw;
+    // margin-right: 12vw;
+    // margin-bottom: 10vw;
+    // overflow-x: auto;
+    // overflow-y: hidden;
+    // white-space: inherit;
+
 }
 
 .mapbox {
@@ -63,18 +74,36 @@ ul {
   background:#FFF;
   padding:10px 50px 50px;
   text-align: center;
+  }
+
+
+.add {
+  margin-top: 20px;
+  color: #244751;
+  border: 2px solid #244751;
+  background-color: #fafaf2;
+  width: 13vw;
+  height: 3vw;
+  font-size: 1.5vw;
+  border-radius: .5vw;
 
 }
+.add:hover {
+  background: #244751;
+  font-weight: bolder;
+  color: white;
+}
+
 
 h2 {
-color: #2b2b2b;
-font-family: 'Raleway', sans-serif;
+color: white;
+font-family: 'Open Sans Condensed', sans-serif;
 text-align: center;
 }
 
 h4 {
 color:  #2b2b2b;
-font-family: 'Raleway', sans-serif;
+font-family:   'Open Sans Condensed', sans-serif;
 text-align: center;
 }
 
@@ -92,13 +121,14 @@ html, body, #map {
   outline: none;
 }
 .toggle {
-  font-size: 3.5vw;
-  color:  #2b2b2b;
-  font-family: 'Raleway', sans-serif;
+  display: inline-block;
+  font-size: 3vw;
+  color:  #1578bd;
+  font-family:'Open Sans Condensed', sans-serif;
+
 }
 .toggle:hover {
   font-weight: bolder;
-  text-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
 }
 
 #pac-input {
@@ -109,6 +139,7 @@ padding:10px 10px 10px 5px;
 width:20vw;
 border:none;
 border-bottom:1px solid #757575;
+
 }
 
 #pac-input:focus {
@@ -151,18 +182,32 @@ input:focus{
   }
 
 button {
-  margin-top: 20px;
-  color: #0f578a;
-  border: 2px solid #0f578a;
-  width: 13vw;
-  height: 3vw;
-  font-size: 1.5vw;
-  border-radius: .5vw;
+  margin-bottom: 30px;
+  font-size: 3vw;
+  border-color: #1578bd;
+  background:#1578bd;
   justify-content: center;
   }
 
   button:hover {
-    background: #0f578a;
+    color:red ;
     font-weight: bolder;
-    color: white;
     }
+
+
+
+
+    @-webkit-keyframes toshiba {
+      from{
+          margin-top:0;
+          opacity: 1;
+      }
+      to{
+          margin-top: 30px;
+          opacity: 0;
+      }
+  }
+  .arrow {
+      -webkit-animation: toshiba 2s linear infinite;
+  }
+

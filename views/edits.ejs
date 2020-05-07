@@ -15,32 +15,35 @@
   <main class=mainbox>
     <div class="row">
     <div class="column">
-      <div class="toggle"><p>Create a Header</p></div>
+      <div class="toggle"><div>Create a Marker</div>
+        <a class="arrow">⇣</a>
+      </div>
     <div class="createbox">
-      <form action="/map_show/<%= mapJson.id %>" method="POST">
-        <input id="pac-input" class="controls" name="name" type="text" placeholder="Search Something">
+      <form id="form" action="/map_show/<%= mapJson.id %>" method="POST">
+        <input id="pac-input" class="controls" name="name" type="text" placeholder="Search Something" required>
         <input type="hidden" id="longitude" name="lng">
         <input type="hidden" id="latitude" name="lat">
         <input type="hidden" id="title" name="title">
         <div>
-          <input type="text" name="description" id="description" placeholder="Describe your marker">
+          <input type="text" name="description" id="description" placeholder="Describe your marker" required>
         </div>
         <div>
-          <input type="text" name="image_url" id="image_url" placeholder="Add thumbnail URL">
+          <input type="text" name="image_url" id="image_url" placeholder="Add thumbnail URL" required>
         </div>
-        <button type="submit">Add</button>
+        <button class="add" type="submit">Add</button>
       </form>
     </div>
     <div class="markerbox">
       <h2>Markers</h2>
+
       <% const reverseMarkers = mapJson.markers.reverse()
        for (const marker of reverseMarkers) { %>
-        <h4><%= marker.marker_title %></h4>
-        <p><%= marker.description %></p>
         <img src="<%= marker.image_url %>">
+        <p><%= marker.marker_title %><p>
+        <p><%= marker.description %></p>
         <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST">
           <input type="hidden" name="marker_id" value="<%= marker.id %>">
-          <button class="delete" type="submit">⦻</button>
+          <button class="delete" type="submit">␡</button>
         </form>
       <% } %>
     </div>
