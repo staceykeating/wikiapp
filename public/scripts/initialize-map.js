@@ -47,7 +47,7 @@ const initialize = function(map, container) {
         infowindow.open(_map, _marker)
       });
     }
-
+    
     $(`#fav-${newDiv}`).click(function(event) {
       event.preventDefault();
       if ($(`#fav-${newDiv}`).css('font-weight') == 800) {
