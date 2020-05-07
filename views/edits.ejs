@@ -40,15 +40,15 @@
       <% const reverseMarkers = mapJson.markers.reverse()
        for (const marker of reverseMarkers) { %>
         <div class="markerrow">
+          <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST">
+            <input type="hidden" name="marker_id" value="<%= marker.id %>">
           <button class="delete" type="submit"><i class="fas fa-trash"></i></button>
+        </form>
         <img src="<%= marker.image_url %>">
         <div class="markercolumn">
         <h4><%= marker.marker_title %></h4>
         <p><%= marker.description %></p></div></div>
-        <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST">
-          <input type="hidden" name="marker_id" value="<%= marker.id %>">
 
-        </form>
       <% } %>
     </div>
     </div>
