@@ -4,12 +4,20 @@ let submitMarker;
 const initialize = function(map, container) {
     // creates a class for this particular map
     const newDiv = `map_${map.id}`;
+
+    let favStatus = '';
+    if (Number(map.liked) > 0) {
+      favStatus = 'liked';
+    } else {
+      favStatus = 'unliked';
+    }
+
     const newMapTemplate= `
     <div class="column"> <div class="maps ${newDiv}"></div>
       <div class="icon">
         <h2>${map.map_title}</h2>
         <div class="row">
-          <button id="fav-${newDiv}" type="submit" i class="fas fa-heart"></i></button>
+          <button id="fav-${newDiv}" type="submit" i class="${favStatus} fas fa-heart"></i></button>
           <form method="POST" action="${map.id}/edit">
             <button type="submit" i class="fas fa-edit"></i></button>
           </form>
@@ -21,6 +29,7 @@ const initialize = function(map, container) {
     // appends a new div with the newDiv class for this particular map to live
     $(`.${container}`).append(newMapTemplate);
     // creates an instance of a map
+
 
     _map = new google.maps.Map($(`.${newDiv}`)[0], {
       center: {lat: 49.2827, lng: -123.1207}, // all maps are of vancouver
@@ -47,22 +56,17 @@ const initialize = function(map, container) {
         infowindow.open(_map, _marker)
       });
     }
-
+    
     $(`#fav-${newDiv}`).click(function(event) {
-      event.preventDefault();
-      if ($(`#fav-${newDiv}`).css('font-weight') == 800) {
-        $(`#fav-${newDiv}`).css('font-weight', 500);
-        $.post(`${map.id}/favorites`)
-        .done((data) => {
-          console.log(data);
-        });
+      if (favStatus === 'liked') {
+        $(`#fav-${newDiv}`).removeClass('liked').addClass('unliked');
       } else {
-        $(`#fav-${newDiv}`).css('font-weight', 800);
-        $.post(`${map.id}/remove-favorites`)
+        $(`#fav-${newDiv}`).removeClass('unliked').addClass('liked');
+      }
+      $.post(`${map.id}/favorites`)
         .done((data) => {
           console.log(data);
         });
-      }
     });
 
     if (container === 'mapbox') {

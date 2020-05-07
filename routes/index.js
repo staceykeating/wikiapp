@@ -8,25 +8,26 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     // Hardcoded user_id as there is no authentication process
-    req.session.user_id = 2;
+    req.session.user_id = 3;
     const user_id = req.session.user_id;
     db.getUserById(user_id)
       .then(user => {
         const templateVars = {
-          userName: user.name
+          currentUser: user
         }
         res.render("index", templateVars);
       });
   });
 
   router.get('/maps', (req, res) => {
-    db.getAllMapsInDatabase()
+    const user_id = req.session.user_id;
+    db.getAllMapsInDatabase(user_id)
       .then(maps => {
-        let arr = [];
+        let arrMarkers = [];
         for (const map of maps) {
-          arr.push(db.getMarkersForMap(map.id));
+          arrMarkers.push(db.getMarkersForMap(map.id));
         }
-        Promise.all(arr).then((values) => {
+        Promise.all(arrMarkers).then((values) => {
           for (let i = 0; i < values.length; i++) {
             maps[i]['markers'] = values[i];
           }
@@ -42,7 +43,7 @@ module.exports = (db) => {
     db.getUserById(user_id)
       .then(user => {
         const templateVars = {
-          userName: user.name
+          currentUser: user
         }
         res.render("profile", templateVars);
       });
@@ -105,7 +106,7 @@ module.exports = (db) => {
     db.getUserById(user_id)
       .then(user => {
         const templateVars = {
-          userName: user.name
+          currentUser: user
         }
         res.render("create", templateVars);
       });
@@ -127,17 +128,17 @@ module.exports = (db) => {
   router.post('/:map_id/favorites', (req, res) => {
     const user_id = req.session.user_id;
     const map_id = req.params.map_id;
-    db.addFavorite(user_id, map_id);
-    res.status(201);
+    db.checkFavorite(user_id, map_id)
+      .then(fav => {
+        if (fav.length > 0) {
+          db.removeFavorite(user_id, map_id);
+          res.status(201);
+        } else {
+          db.addFavorite(user_id, map_id);
+          res.status(201);
+        }
+      })
   })
-
-  router.post('/:map_id/remove-favorites', (req, res) => {
-    const user_id = req.session.user_id;
-    const map_id = req.params.map_id;
-    db.removeFavorite(user_id, map_id);
-    res.status(201);
-  })
-
 
   router.get('/map_show/:map_id', (req, res) => {
     const map_id = req.params.map_id;
@@ -151,7 +152,7 @@ module.exports = (db) => {
           db.getUserById(user_id)
             .then(user => {
               const templateVars = {
-                userName: user.name,
+                currentUser: user,
                 mapJson: map
               }
               res.render('edits', templateVars);
@@ -180,10 +181,18 @@ module.exports = (db) => {
       });
     });
 
-    router.post('/map_show/:map_id/DELETE', (req, res) => {
+    router.post('/map_show/:map_id/DELETE/marker', (req, res) => {
       console.log(typeof req.body.marker_id)
       db.deleteMarker(req.body.marker_id).then(() => {
         res.redirect(`/map_show/${req.params.map_id}`);
+      });
+    });
+
+    router.post('/map_show/:map_id/DELETE', (req, res) => {
+      const map_id = req.params.map_id;
+      db.deleteMap(map_id)
+      .then(() => {
+        res.redirect('/profile');
       });
     });
 

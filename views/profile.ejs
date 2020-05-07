@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Create A Map</title>
-
     <link rel="stylesheet" type="text/css" href="../styles/profile.css">
-
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css">
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
     <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat|Raleway&display=swap" rel="stylesheet">
-    </head>
-
-
+    <title>mapamundi | <%= currentUser.name%></title>
+  </head>
   <body>
     <header>
      <%- include('partials/nav') %>
@@ -19,17 +16,15 @@
       <h1>My Favorites</h1>
       <div class="maprow">
         <div class="my-favorites-container"></div>
-
       </div>
-        <h1>My Maps</h1>
-        <div class="maprow">
-          <div class="my-maps-container"></div>
-
-        </div>
-        <h1>My Contributions</h1>
-        <div class="maprow">
-          <div class="my-contributions-container"></div>
-        </div>
+      <h1>My Maps</h1>
+      <div class="maprow">
+        <div class="my-maps-container"></div>
+      </div>
+      <h1>My Contributions</h1>
+      <div class="maprow">
+        <div class="my-contributions-container"></div>
+      </div>
     </main>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA"></script>

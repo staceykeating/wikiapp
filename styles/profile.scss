@@ -1,24 +1,38 @@
 button.fas.fa-heart {
   color:  #f08080;
-  font-weight: 800;
   text-decoration: none;
   font-size: large;
   border: none;
   background-color: none;
+  cursor: pointer;
+  outline: none;
 }
 
 button.fas.fa-edit {
   color: #398039;
-  font-weight: 800;
   text-decoration: none;
   font-size: large;
   border: none;
   background-color: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.liked {
+  font-weight: 800;
+}
+
+.unliked {
+  font-weight: 500;
 }
 
 a.fa, a.fas :focus {
   color: black;
   font-weight: 500;
+}
+
+form {
+  display: flex;
 }
 
 .maprow {
