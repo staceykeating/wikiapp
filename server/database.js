@@ -34,10 +34,11 @@ const getMarkersForMap = function(map) {
 //gets the favourite maps for one user
   const getAllUserFavoriteMaps = function(user_id) {
     return db.query(`
-    SELECT maps.* FROM maps
+    SELECT maps.*, COUNT(favorites) AS liked FROM maps
     JOIN favorites ON map_id = maps.id
     WHERE favorites.user_id = $1
-    LIMIT 3;
+    GROUP BY maps.id
+    ORDER by maps.id;
     `, [user_id])
 //returns multiple maps
     .then(res => (res.rows))
@@ -46,13 +47,15 @@ const getMarkersForMap = function(map) {
   exports.getAllUserFavoriteMaps = getAllUserFavoriteMaps;
 
 // get all maps that belong to a user
-  const getAllUserMaps = function(user) {
+  const getAllUserMaps = function(user_id) {
     return db.query(`
-    SELECT maps.* FROM maps
+    SELECT maps.*, COUNT(favorite) AS liked FROM maps
     JOIN users ON users.id = maps.creator_id
+    LEFT JOIN (SELECT * FROM favorites WHERE user_id = $1) AS favorite ON map_id = maps.id
     WHERE users.id = $1
-    LIMIT 3;
-    `, [user])
+    GROUP BY maps.id
+    ORDER BY maps.id;
+    `, [user_id])
 //returns multiple maps
     .then(res => (res.rows))
     .catch(error => (error));
@@ -62,8 +65,9 @@ const getMarkersForMap = function(map) {
 // all markers for one user on their respective maps
  const getAllUserMarkers = function(user_id) {
     return db.query(`
-    SELECT maps.id, maps.map_title, maps.description
+    SELECT maps.id, maps.map_title, maps.description, COUNT(favorite) AS liked
     FROM maps
+    LEFT JOIN (SELECT * FROM favorites WHERE user_id = $1) AS favorite ON map_id = maps.id
     JOIN markers ON markers.map_id = maps.id
     WHERE markers.creator_id = $1 AND maps.creator_id != $1
     GROUP BY maps.id;
@@ -75,10 +79,12 @@ const getMarkersForMap = function(map) {
   }
   exports.getAllUserMarkers = getAllUserMarkers;
 
-const getAllMapsInDatabase = function() {
+const getAllMapsInDatabase = function(user_id) {
   return db.query(`
-  SELECT * FROM maps;
-  `,)
+  SELECT maps.*, COUNT(favorite) AS liked FROM maps 
+  LEFT JOIN (SELECT * FROM favorites WHERE user_id = $1) AS favorite  ON map_id = maps.id
+  GROUP BY maps.id ORDER BY maps.id;
+  `,[user_id])
 //returns multiple maps
     .then(res => (res.rows))
     .catch(error => (error));

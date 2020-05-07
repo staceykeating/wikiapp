@@ -21,7 +21,7 @@ module.exports = (db) => {
 
   router.get('/maps', (req, res) => {
     const user_id = req.session.user_id;
-    db.getAllMapsInDatabase()
+    db.getAllMapsInDatabase(user_id)
       .then(maps => {
         let arrMarkers = [];
         for (const map of maps) {
@@ -31,21 +31,7 @@ module.exports = (db) => {
           for (let i = 0; i < values.length; i++) {
             maps[i]['markers'] = values[i];
           }
-          let arrFavorites =[];
-          for (const map of maps) {
-            arrFavorites.push(db.checkFavorite(user_id, map.id));
-          }
-          Promise.all(arrFavorites).then((values) => {
-            for (let i = 0; i < values.length; i++) {
-              if (values[i].length > 0) {
-                maps[i]['favorite'] = true;
-              } else {
-                maps[i]['favorite'] = false;
-              }
-            }
-            console.log(maps);
-            res.json(maps);
-          })
+          res.json(maps);
         })
       })
   });
@@ -146,11 +132,9 @@ module.exports = (db) => {
       .then(fav => {
         if (fav.length > 0) {
           db.removeFavorite(user_id, map_id);
-          console.log('UNLIKED');
           res.status(201);
         } else {
           db.addFavorite(user_id, map_id);
-          console.log('LIKED');
           res.status(201);
         }
       })
