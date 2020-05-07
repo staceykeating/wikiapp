@@ -64,6 +64,7 @@ module.exports = (db) => {
         })
       });
   })
+
   router.get('/my-maps', (req, res) => {
     const user_id = req.session.user_id;
     db.getAllUserMaps(user_id)
@@ -80,6 +81,7 @@ module.exports = (db) => {
         })
       })
   })
+
   router.get('/my-contributions', (req, res) => {
     const user_id = req.session.user_id;
     db.getAllUserMarkers(user_id)
@@ -121,6 +123,21 @@ module.exports = (db) => {
     const map_id = req.params.map_id;
     res.redirect(`/map_show/${map_id}`,)
   });
+
+  router.post('/:map_id/favorites', (req, res) => {
+    const user_id = req.session.user_id;
+    const map_id = req.params.map_id;
+    db.addFavorite(user_id, map_id);
+    res.status(201);
+  })
+
+  router.post('/:map_id/remove-favorites', (req, res) => {
+    const user_id = req.session.user_id;
+    const map_id = req.params.map_id;
+    db.removeFavorite(user_id, map_id);
+    res.status(201);
+  })
+
 
   router.get('/map_show/:map_id', (req, res) => {
     const map_id = req.params.map_id;
