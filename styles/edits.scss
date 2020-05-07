@@ -91,6 +91,15 @@ html, body, #map {
   -moz-box-sizing: border-box;
   outline: none;
 }
+.toggle {
+  font-size: 3.5vw;
+  color:  #2b2b2b;
+  font-family: 'Raleway', sans-serif;
+}
+.toggle:hover {
+  font-weight: bolder;
+  text-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
+}
 
 #pac-input {
 background-color: #fff;
