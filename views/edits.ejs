@@ -58,12 +58,12 @@
         <h4><%= mapJson.description%></h4>
       </div>
       <% if (currentUser.id === mapJson.creator_id) { %>
-        <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST">
-        <button type="submit">DELETE</button>
+        <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST" class="deleterow">
+        <button type="submit">Delete</button>
         </form>
       <% } %>
     </div>
-  
+
   </main>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA&libraries=places"></script>
