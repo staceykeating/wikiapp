@@ -5,6 +5,8 @@ button.fas.fa-heart {
   font-size: x-large;
   border: none;
   background-color: none;
+  cursor: pointer;
+  outline: none;
 }
 
 button.fas.fa-edit {
@@ -14,6 +16,12 @@ button.fas.fa-edit {
   font-size: x-large;
   border: none;
   background-color: none;
+  cursor: pointer;
+  outline: none;
+}
+
+form {
+  display: flex;
 }
 
 .row {
