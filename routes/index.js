@@ -127,17 +127,19 @@ module.exports = (db) => {
   router.post('/:map_id/favorites', (req, res) => {
     const user_id = req.session.user_id;
     const map_id = req.params.map_id;
-    db.addFavorite(user_id, map_id);
-    res.status(201);
+    db.checkFavorite(user_id, map_id)
+      .then(res => {
+        if (res.length > 0) {
+          db.removeFavorite(user_id, map_id);
+          console.log('UNLIKED');
+          res.status(201);
+        } else {
+          db.addFavorite(user_id, map_id);
+          console.log('LIKED');
+          res.status(201);
+        }
+      })
   })
-
-  router.post('/:map_id/remove-favorites', (req, res) => {
-    const user_id = req.session.user_id;
-    const map_id = req.params.map_id;
-    db.removeFavorite(user_id, map_id);
-    res.status(201);
-  })
-
 
   router.get('/map_show/:map_id', (req, res) => {
     const map_id = req.params.map_id;

@@ -133,6 +133,18 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
   }
   exports.removeFavorite = removeFavorite;
 
+  const checkFavorite = function(user_id, map_id) {
+    return db.query(`SELECT * 
+    FROM favorites
+    WHERE user_id = $1 AND map_id = $2;
+    `, [ user_id, map_id ])
+    .then(res => res.rows)
+    .catch(error => error)
+  }
+  exports.checkFavorite = checkFavorite;
+
+
+
   const deleteMarker = function(marker_id){
     return db.query(`DELETE FROM markers
     WHERE id = $1;`, [marker_id])

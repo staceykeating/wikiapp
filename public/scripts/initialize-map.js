@@ -52,17 +52,13 @@ const initialize = function(map, container) {
       event.preventDefault();
       if ($(`#fav-${newDiv}`).css('font-weight') == 800) {
         $(`#fav-${newDiv}`).css('font-weight', 500);
-        $.post(`${map.id}/favorites`)
-        .done((data) => {
-          console.log(data);
-        });
       } else {
         $(`#fav-${newDiv}`).css('font-weight', 800);
-        $.post(`${map.id}/remove-favorites`)
+      }
+      $.post(`${map.id}/favorites`)
         .done((data) => {
           console.log(data);
         });
-      }
     });
 
     if (container === 'mapbox') {
