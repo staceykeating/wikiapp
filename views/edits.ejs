@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="../styles/edits.css">
   <title>mapumundi</title>
+  <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
   <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat|Raleway&display=swap" rel="stylesheet">
   <script id="vars">
     const mapJson = <%- JSON.stringify(mapJson) %>
@@ -35,12 +36,15 @@
       <h2>Markers</h2>
       <% const reverseMarkers = mapJson.markers.reverse()
        for (const marker of reverseMarkers) { %>
-        <h4><%= marker.marker_title %></h4>
-        <p><%= marker.description %></p>
+        <div class="markerrow">
+          <button class="delete" type="submit"><i class="fas fa-trash"></i></button>
         <img src="<%= marker.image_url %>">
+        <div class="markercolumn">
+        <h4><%= marker.marker_title %></h4>
+        <p><%= marker.description %></p></div></div>
         <form action="/map_show/<%= mapJson.id %>/DELETE" method="POST">
           <input type="hidden" name="marker_id" value="<%= marker.id %>">
-          <button class="delete" type="submit">⦻</button>
+
         </form>
       <% } %>
     </div>
