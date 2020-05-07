@@ -17,16 +17,16 @@
     <div class="column">
       <div class="toggle"><p>Create a Marker</p></div>
     <div class="createbox">
-      <form action="/map_show/<%= mapJson.id %>" method="POST">
-        <input id="pac-input" class="controls" name="name" type="text" placeholder="Search Something">
+      <form id="form" action="/map_show/<%= mapJson.id %>" method="POST">
+        <input id="pac-input" class="controls" name="name" type="text" placeholder="Search Something" required>
         <input type="hidden" id="longitude" name="lng">
         <input type="hidden" id="latitude" name="lat">
         <input type="hidden" id="title" name="title">
         <div>
-          <input type="text" name="description" id="description" placeholder="Describe your marker">
+          <input type="text" name="description" id="description" placeholder="Describe your marker" required>
         </div>
         <div>
-          <input type="text" name="image_url" id="image_url" placeholder="Add thumbnail URL">
+          <input type="text" name="image_url" id="image_url" placeholder="Add thumbnail URL" required>
         </div>
         <button class="add" type="submit">Add</button>
       </form>
@@ -61,6 +61,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA&libraries=places"></script>
   <script src="/scripts/initialize-map.js"></script>
   <script src="/scripts/show-map-helper.js"></script>
+  <script src="/scripts/input-text-validator.js"></script>
 </div>
 </body>
 </html>
