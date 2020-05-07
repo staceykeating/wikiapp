@@ -15,7 +15,9 @@
   <main class=mainbox>
     <div class="row">
     <div class="column">
-      <div class="toggle"><p>Create a Marker</p></div>
+      <div class="toggle"><div>Create a Marker</div>
+        <a class="arrow">⇣</a>
+      </div>
     <div class="createbox">
       <form id="form" action="/map_show/<%= mapJson.id %>" method="POST">
         <input id="pac-input" class="controls" name="name" type="text" placeholder="Search Something" required>
@@ -61,7 +63,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAl8y8muQpq4QUgU_Hrn4ktZlO4kH2BwA&libraries=places"></script>
   <script src="/scripts/initialize-map.js"></script>
   <script src="/scripts/show-map-helper.js"></script>
-  <script src="/scripts/input-text-validator.js"></script>
 </div>
 </body>
 </html>

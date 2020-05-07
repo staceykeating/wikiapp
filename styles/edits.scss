@@ -88,12 +88,13 @@ ul {
   border-radius: .5vw;
 
 }
-
 .add:hover {
   background: #244751;
   font-weight: bolder;
   color: white;
 }
+
+
 h2 {
 color: white;
 font-family: 'Open Sans Condensed', sans-serif;
@@ -120,14 +121,14 @@ html, body, #map {
   outline: none;
 }
 .toggle {
-  font-size: 3.5vw;
-  color:  #2b2b2b;
-  font-family:   'Open Sans Condensed', sans-serif;
+  display: inline-block;
+  font-size: 3vw;
+  color:  #1578bd;
+  font-family:'Open Sans Condensed', sans-serif;
 
 }
 .toggle:hover {
   font-weight: bolder;
-  text-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
 }
 
 #pac-input {
@@ -192,3 +193,21 @@ button {
     color:red ;
     font-weight: bolder;
     }
+
+
+
+
+    @-webkit-keyframes toshiba {
+      from{
+          margin-top:0;
+          opacity: 1;
+      }
+      to{
+          margin-top: 30px;
+          opacity: 0;
+      }
+  }
+  .arrow {
+      -webkit-animation: toshiba 2s linear infinite;
+  }
+
