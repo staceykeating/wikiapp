@@ -8,7 +8,7 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     // Hardcoded user_id as there is no authentication process
-    req.session.user_id = 2;
+    req.session.user_id = 3;
     const user_id = req.session.user_id;
     db.getUserById(user_id)
       .then(user => {
