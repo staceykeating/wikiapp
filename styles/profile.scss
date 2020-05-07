@@ -43,34 +43,30 @@ form {
 
 .my-favorites-container {
   display: flex;
-  justify-content: space-around;
-  margin-left: 5vw;
-  margin-right: 5vw;
-
-
-
+  margin-left: 11vw;
+  margin-right: 11vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: inherit;
 }
 .my-maps-container {
   display: flex;
-  justify-content: space-around;
-  margin-left: 5vw;
-  margin-right: 5vw;
-
+  margin-left: 11vw;
+  margin-right: 11vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: inherit;
 }
 
 .my-contributions-container {
   display: flex;
   margin-left: 11vw;
-  margin-right: 12vw;
+  margin-right: 11vw;
   margin-bottom: 10vw;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: inherit;
-
 }
-
-
-
 
 .column {
   flex: 33.33%;
@@ -106,7 +102,7 @@ body {
   width: 20vw;
   height: 20vw;
   border-radius: 10px;
-  box-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
+  box-shadow: 0 0 25px -4px rgba(56,56,56,0.72);
   justify-content: center;
   justify-items: center;
   margin-right: auto;
@@ -151,7 +147,8 @@ h1 {
 .my-contributions-container::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: #4b82c6;
+  // background: #4b82c6;
+  background: linear-gradient(90deg, rgba(72,147,201,1) 0%, rgba(124,197,247,1) 100%);
 }
 
 
@@ -169,23 +166,22 @@ h1 {
 .my-favorites-container::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: #4b82c6;
+  background: linear-gradient(90deg, rgba(72,147,201,1) 0%, rgba(124,197,247,1) 100%);
 }
 
-///
-.my-favorites-container::-webkit-scrollbar {
+.my-maps-container::-webkit-scrollbar {
   width: 8px;
 }
 
 
-.my-favorites-container::-webkit-scrollbar-track {
+.my-maps-container::-webkit-scrollbar-track {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
 
 /* Handle */
-.my-favorites-container::-webkit-scrollbar-thumb {
+.my-maps-container::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: #4b82c6;
+  background: linear-gradient(90deg, rgba(72,147,201,1) 0%, rgba(124,197,247,1) 100%);
 }
