@@ -1,8 +1,6 @@
 body {
-background: white;
-//background-image: url("https://www.transparenttextures.com/patterns/white-texture.png");
+  background: linear-gradient(90deg, rgba(57,148,213,1) 0%, rgba(32,129,196,1) 100%);
 }
-
 .createbox {
   display: inline-flexbox;
   justify-content: center;
@@ -11,7 +9,6 @@ background: white;
   border-radius: 1em;
   margin-left: 23vw;
   margin-right: 23vw;
-  height: 40vw;
   }
 
   .column {
@@ -20,26 +17,30 @@ background: white;
 
   }
 
-  h1 {
+  .column h1 {
     margin-bottom: 30px;
     font-size: 3em;
-    color: #398039;
+    color: white;
     font-family: 'Montserrat', sans-serif;
+    background-color: none;
+    text-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
   }
 
   .form {
     font-family: 'Raleway', sans-serif;
 
+
   }
 
 input.form-control {
-  background-image: none;
+  background: (183, 223, 235);
+  opacity: .5;
   text-align: center;
-  color:  #244751;
-  width: 40vw;
+  width: 30vw;
   height: 3vw;
-  margin: 0.5vw;
+  margin: 1vw;
   border-style: none;
+  border-radius: 10px;
   font-size: 25px;
   font-weight: 500;
   line-height: 20px;
@@ -58,27 +59,24 @@ input.form-control {
   background-color: #244751;
   //transition: 0.4s;
 }
-.form-control:focus ~ .focus-border{
-  width: 100%;
-  transition: 0.5s;
-  left: 0;
-}
+
 
 button {
   margin-top: 20px;
-  color: #244751;
-  border: 2px solid #244751;
+  color: #0f578a;
+  border: 2px solid #0f578a;
   background-color: #fafaf2;
-  width: 13vw;
+  width: 20vw;
   height: 3vw;
   font-size: 1.5vw;
   border-radius: .5vw;
+  box-shadow: 6px 6px 30px -4px rgba(19, 72, 110,0.72)
 
 }
 
 button:hover {
-  background: #244751;
+  background: #0f578a;
   font-weight: bolder;
   color: white;
+  box-shadow: 6px 6px 30px -4px rgba(56,56,56,0.72);
 }
-
