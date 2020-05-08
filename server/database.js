@@ -156,9 +156,7 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
     .catch(error => (error));
   }
   exports.deleteMap = deleteMap;
-<<<<<<< HEAD
-=======
-
+  
   const deleteMarker = function(marker_id){
     return db.query(`DELETE FROM markers
     WHERE id = $1;`, [marker_id])
@@ -166,4 +164,3 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
     .catch(error => (error));
   }
   exports.deleteMarker = deleteMarker;
->>>>>>> 9e0886ad4a76dae73a0dbbb899206b6eb9c59efe
