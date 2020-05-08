@@ -8,6 +8,14 @@ button.fas.fa-heart {
   outline: none;
 }
 
+button.fas.fa-heart.liked {
+  font-weight: 800;
+}
+
+button.fas.fa-heart.unliked {
+  font-weight: 500;
+}
+
 button.fas.fa-edit {
   color: #398039;
   text-decoration: none;
@@ -18,18 +26,10 @@ button.fas.fa-edit {
   outline: none;
 }
 
-.liked {
-  font-weight: 800;
-}
-
-.unliked {
-  font-weight: 500;
-}
-
-a.fa, a.fas :focus {
-  color: black;
-  font-weight: 500;
-}
+// a.fa, a.fas :focus {
+//   color: black;
+//   font-weight: 500;
+// }
 
 form {
   display: flex;

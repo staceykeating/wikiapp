@@ -177,7 +177,6 @@ module.exports = (db) => {
   });
 // Deletes a marker from database from the edit page
   router.post('/map_show/:map_id/DELETE/marker', (req, res) => {
-    console.log(typeof req.body.marker_id)
     db.deleteMarker(req.body.marker_id).then(() => {
       res.redirect(`/map_show/${req.params.map_id}`);
     });
