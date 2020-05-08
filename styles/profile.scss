@@ -6,6 +6,7 @@ button.fas.fa-heart {
   background-color: none;
   cursor: pointer;
   outline: none;
+  margin-bottom: 14px;
 }
 
 button.fas.fa-heart.liked {
@@ -33,6 +34,7 @@ button.fas.fa-edit {
 
 form {
   display: flex;
+  margin-bottom: 14px;
 }
 
 .maprow {
