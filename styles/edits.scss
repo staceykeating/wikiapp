@@ -44,11 +44,11 @@ ul {
   color: white;
   background: linear-gradient(0deg, rgba(124,197,247,1) 0%, rgba(72,147,201,1) 100%);
   width: 25vw;
-  height: 34vw;
+  height: 34.5vw;
   border-radius: 1em;
   text-align: center;
   padding-bottom: .5vw;
-  margin-top: 4.2vw;
+  margin-top: 2.2vw;
   box-shadow: 6px 6px 30px -4px rgba(56, 56, 56, 0.72);
   overflow-y: auto;
   white-space: inherit;
@@ -57,6 +57,7 @@ ul {
 
 .markerbox h2 {
   color: white;
+  margin-top: 1.7em;
 }
 .markerbox img {
   width: 50px;
@@ -67,7 +68,7 @@ ul {
 
 
 .mapbox {
-  margin-top: 3.5vw;
+  margin-top: 1.5vw;
 }
 
 .mapbox h2 {
@@ -123,9 +124,12 @@ margin-left: 1em;
 .markerbox h4 {
   color: white;
   text-align: start;
+  font-size: 15px;
 }
 
-
+.trash {
+  margin-top: 5px;
+}
 p {
   margin: 0;
   font-family: 'Raleway', sans-serif;
@@ -164,6 +168,9 @@ html, body, #map {
   width: 24vw;
   cursor: pointer;
 
+}
+.toggle-label {
+  margin-top: .2em;
 }
 
 .fas.fa-trash-alt {
@@ -246,6 +253,7 @@ button {
   border-radius: 10px;
   text-align: center;
   width: 10vw;
+  margin-right: .1em;
   }
 
   button:hover {
@@ -258,7 +266,7 @@ button {
       flex: 33.33%;
       flex-direction: column;
       text-align: start;
-      margin-top: 3.5vw;
+      margin-top: 1.5vw;
     }
 
 
@@ -271,15 +279,13 @@ button {
     }
 
     button.delete {
-      color: black;
-      margin-top: 0;
+      margin-top: 5px;
       margin-right: .5em;
       width: auto;
       justify-content: center;
       background:none;
       border: none;
       color: white;
-      margin-top: .5em;
     }
 
 
@@ -317,18 +323,11 @@ button {
           opacity: 0;
       }
   }
-<<<<<<< HEAD
-
-  .arrow {
-      -webkit-animation: toshiba 2s linear infinite;
-  }
-=======
 i.fas.fa-angle-double-down {
   -webkit-animation: toshiba 2s linear infinite;
   font-size: large;
   margin-left: .5em;
 }
->>>>>>> stacey
 
 .deleterow {
   justify-content: end;
