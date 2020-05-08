@@ -17,8 +17,8 @@
   <main class=mainbox>
     <div class="row">
     <div class="column">
-      <div class="toggle"><div>Create a Marker</div>
-        <a class="arrow">⇣</a>
+      <div class="toggle"><div class="toggle-label">Create a Marker</div>
+      <i class="fas fa-angle-double-down"></i>
       </div>
     <div class="createbox">
       <form id="form" action="/map_show/<%= mapJson.id %>" method="POST">
@@ -43,7 +43,7 @@
         <div class="markerrow">
           <form action="/map_show/<%= mapJson.id %>/DELETE/marker" method="POST">
             <input type="hidden" name="marker_id" value="<%= marker.id %>">
-          <button class="delete" type="submit"><i class="fas fa-trash"></i></button>
+          <button class="delete" type="submit"><i class="far fa-trash-alt"></i></button>
         </form>
         <img src="<%= marker.image_url %>">
         <div class="markercolumn">

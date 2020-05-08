@@ -7,7 +7,6 @@ const createMap = function(maps, container) {
 const loadFavoriteMaps = function() {
   $.getJSON('/my-favorites')
   .then(function(maps) {
-    console.log(maps);
     createMap(maps, 'my-favorites-container');
   })
 };

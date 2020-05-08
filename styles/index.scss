@@ -9,11 +9,11 @@ button.fas.fa-heart {
   margin-bottom: 13px;
 }
 
-.liked {
+button.fas.fa-heart.liked {
   font-weight: 800;
 }
 
-.unliked{
+button.fas.fa-heart.unliked{
   font-weight: 500;
 }
 
@@ -45,6 +45,7 @@ form {
   margin-right: 15vw;
   margin-top: 20px;
   margin-bottom: 7vw;
+  align-items: baseline;
 }
 
 .column {
