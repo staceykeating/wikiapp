@@ -18,17 +18,14 @@ body {
   }
 
   .mainbox {
-
     justify-content: center;
     margin-top: 10vw;
-
-
-    }
+}
 
 
    .maps {
       width: 60vw;
-      height: 35vw  ;
+      height: 35vw;
       justify-content: space-between;
       border-radius: 10px;
       box-shadow: 6px 6px 30px -4px rgba(56, 56, 56, 0.72);
@@ -65,18 +62,18 @@ ul {
 .markerbox img {
   width: 50px;
   height: 50px;
-  overflow: hidden;
+  overflow: inherit;
   border-radius: 1em;
 }
 
 
 .mapbox {
-  margin-top: 2vw;
+  margin-top: 3.5vw;
 }
 
 .mapbox h2 {
   font-family: 'Raleway', sans-serif;
-  color: black;
+  color: #4b82c6;
 
 }
 
@@ -116,7 +113,7 @@ text-align: center;
 }
 
 h4 {
-color:  black;
+color: #4b82c6;
 font-family: 'Raleway', sans-serif;
 text-align: center;
 margin-top: 0;
@@ -170,7 +167,10 @@ html, body, #map {
 
 }
 
-
+.fas.fa-trash {
+  font-size: 2vw;
+  display: flex;
+}
 .toggle:hover {
   font-weight: bolder;
 }
@@ -195,7 +195,7 @@ border-bottom:1px solid #757575;
 }
 
 #type-selector {
-  color: #fff;
+  color: white;
   background-color: #4d90fe;
   padding: 5px 11px 0px 11px;
 }
@@ -226,15 +226,22 @@ input:focus{
   }
 
 button {
-  margin-bottom: 30px;
-  font-size: 3vw;
-  border-color: #1578bd;
-  background:#1578bd;
+  font-size: 2vw;
   justify-content: center;
+  padding-bottom: 1.3em;
+  font-family: 'Raleway', sans-serif;
+  display: inline-flex;
+  border-style: solid;
+  padding: .2em;
+  background: #4893c9;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  width: 10vw;
   }
 
   button:hover {
-    color:red ;
+    box-shadow: 6px 6px 30px -4px rgba(56, 56, 56, 0.72);
     font-weight: bolder;
     }
 
@@ -304,7 +311,13 @@ button {
           opacity: 0;
       }
   }
+
   .arrow {
       -webkit-animation: toshiba 2s linear infinite;
   }
 
+.deleterow {
+  justify-content: end;
+  display: grid;
+  margin-top: 1vw;
+}
