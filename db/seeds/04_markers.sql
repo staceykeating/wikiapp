@@ -4,7 +4,7 @@ VALUES (1, 1, '33 Acres', 'Best beer in town', 'https://images.pexels.com/photos
 (1, 2, 'Postmark', 'Drinking beer place', 'https://images.pexels.com/photos/1400255/pexels-photo-1400255.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 49.284977, -123.0938566),
 (1, 2, 'Electric Bicycle Brewing', 'Such a fun spot!', 'https://images.pexels.com/photos/1267257/pexels-photo-1267257.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 49.267369, -123.104256),
 (1, 4, 'Parallel 49', 'Always a good time and great brews!', 'https://images.pexels.com/photos/2599245/pexels-photo-2599245.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 49.2573096, -123.0861008),
-(2, 3, 'Tacofino', 'Best tacos in town!', 'https://images.pexels.com/photos/2092507/pexels-photo-2092507.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 49.2728373, -123.119373),
+(2, 2, 'Tacofino', 'Best tacos in town!', 'https://images.pexels.com/photos/2092507/pexels-photo-2092507.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 49.2728373, -123.119373),
 (2, 2, 'Sal y Limon', 'Tacos at the airport', 'https://images.pexels.com/photos/3118074/pexels-photo-3118074.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 49.257784, -123.089472),
 (2, 1, 'La Taqueria Pinche Taco', 'OG Taco Kings', 'https://images.pexels.com/photos/2338015/pexels-photo-2338015.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 49.2829638, -123.1105456),
 (2, 2, 'Chronic Tacos', 'Mouth watering', 'https://pbs.twimg.com/profile_images/378800000083974875/a7a97eae11479f37a3c1d87271fd03ef_400x400.jpeg', 49.2168652, -123.0123861),
