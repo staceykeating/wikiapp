@@ -57,13 +57,13 @@ const initialize = function(map, container) {
       });
     }
     
-    $(`#fav-${newDiv}`).click(function(event) {
+    $(`#fav-${newDiv}`).click(function() {
       if (favStatus === 'liked') {
         $(`#fav-${newDiv}`).removeClass('liked').addClass('unliked');
       } else {
         $(`#fav-${newDiv}`).removeClass('unliked').addClass('liked');
       }
-      $.post(`${map.id}/favorites`)
+      $.post(`/${map.id}/favorites`)
         .done((data) => {
           console.log(data);
         });
@@ -105,10 +105,6 @@ const initialize = function(map, container) {
         title: place.name,
         position: place.geometry.location
       });
-
-      console.log(marker.position.lat());
-      console.log(marker.position.lng());
-      console.log(marker.title);
 
       $('#title').val(marker.title);
       $('#longitude').val(marker.position.lng());
