@@ -155,4 +155,4 @@ exports.getAllMapsInDatabase = getAllMapsInDatabase;
     .then(res => (res.rows[0]))
     .catch(error => (error));
   }
-  exports.deleteMarker = deleteMap;
+  exports.deleteMap = deleteMap;
