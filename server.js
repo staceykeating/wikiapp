@@ -31,15 +31,10 @@ app.use("/styles", sass({
 }));
 
 app.use(express.static("public"));
+// set to routers 
+const indexRoutes = require("./routes/index");
 
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-const mapsRoutes = require("./routes/index");
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-
-app.use(mapsRoutes(db));
-// Note: mount other resources here, using the same pattern above
+app.use(indexRoutes(db));
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
