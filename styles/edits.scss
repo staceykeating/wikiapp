@@ -78,29 +78,28 @@ ul {
 }
 
 .createbox {
-  margin-top: 5vw;
-  font-family: 'Open Sans Condensed', sans-serif;
-  width:20vw;
-  display:block;
-  background:#FFF;
-  padding:10px 50px 50px;
+  display: inline-flex;
+  justify-content: center;
   text-align: center;
+  border-radius: 1em;
+  width: 25vw;
   }
 
 
 .add {
   margin-top: 20px;
-  color: #244751;
-  border: 2px solid #244751;
+  color: #0f578a;
+  border: 2px solid #0f578a;
   background-color: #fafaf2;
-  width: 13vw;
+  width: 10vw;
   height: 3vw;
   font-size: 1.5vw;
   border-radius: .5vw;
+  box-shadow: 6px 6px 30px -4px rgba(19, 72, 110,0.72)
 
 }
 .add:hover {
-  background: #244751;
+  background: #0f578a;
   font-weight: bolder;
   color: white;
 }
@@ -164,6 +163,7 @@ html, body, #map {
   border-width: 2px;
   text-align: center;
   width: 24vw;
+  cursor: pointer;
 
 }
 
@@ -177,16 +177,21 @@ html, body, #map {
 
 #pac-input {
 background-color: #fff;
+color: #0f578a;
 text-overflow: ellipsis;
 font-size:18px;
 padding:10px 10px 10px 5px;
 width:20vw;
 border:none;
-border-bottom:1px solid #757575;
+border-bottom:1px solid #4d90fe;
 
 }
 
 #pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.input:focus {
   border-color: #4d90fe;
 }
 
@@ -213,14 +218,18 @@ border-bottom:1px solid #757575;
 
 input {
 font-size:18px;
+color: #0f578a;
 padding:10px 10px 10px 5px;
 display:block;
 width:20vw;
 border:none;
 border-bottom:1px solid #757575;
 text-align: center;
+border-color: #4d90fe;
 }
-
+input::placeholder {
+  color: #778da1;
+}
 input:focus{
   outline:none;
   }
@@ -243,6 +252,7 @@ button {
   button:hover {
     box-shadow: 6px 6px 30px -4px rgba(56, 56, 56, 0.72);
     font-weight: bolder;
+    cursor: pointer;
     }
 
     .column {
