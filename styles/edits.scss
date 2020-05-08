@@ -50,9 +50,8 @@ ul {
   height: 34vw;
   border-radius: 1em;
   text-align: center;
-  padding-top: .5vw;
   padding-bottom: .5vw;
-  margin-top: 5vw;
+  margin-top: 4.2vw;
   box-shadow: 6px 6px 30px -4px rgba(56, 56, 56, 0.72);
   overflow-y: auto;
   white-space: inherit;
@@ -153,7 +152,7 @@ html, body, #map {
   outline: none;
 }
 .toggle {
-  font-size: 2.5vw;
+  font-size: x-large;
   justify-content: center;
   font-family:'Raleway', sans-serif;
   display: inline-flex;
@@ -170,8 +169,8 @@ html, body, #map {
 
 }
 
-.fas.fa-trash {
-  font-size: 2vw;
+.fas.fa-trash-alt {
+  font-size: 1.5vw;
   display: flex;
 }
 .toggle:hover {
@@ -252,12 +251,8 @@ button {
       flex: 33.33%;
       flex-direction: column;
       text-align: start;
-      margin-top: 3vw;
+      margin-top: 3.5vw;
     }
-
-    .markercolumn {
-        margin-top: .3em;
-      }
 
 
 
@@ -271,6 +266,7 @@ button {
     button.delete {
       color: black;
       margin-top: 0;
+      margin-right: .5em;
       width: auto;
       justify-content: center;
       background:none;
@@ -314,9 +310,11 @@ button {
           opacity: 0;
       }
   }
-  .arrow {
-      -webkit-animation: toshiba 2s linear infinite;
-  }
+i.fas.fa-angle-double-down {
+  -webkit-animation: toshiba 2s linear infinite;
+  font-size: large;
+  margin-left: .5em;
+}
 
 .deleterow {
   justify-content: end;
