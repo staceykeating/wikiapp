@@ -30,7 +30,7 @@ Mapamundi is a simple interactive website where users can create and interact wi
 
 ## Final Product
 
-!["Homepage"](https://github.com/staceykeating/wikiapp/blob/master/docs/mappage.png)
+!["Homepage"](https://github.com/staceykeating/wikiapp/blob/master/docs/homepage.png?raw=true)
 !["Profile Page"](https://github.com/staceykeating/wikiapp/blob/master/docs/profilepage.png)
 !["Create Page"](https://github.com/staceykeating/wikiapp/blob/master/docs/searchpage.png)
 !["Map Display"](https://github.com/staceykeating/wikiapp/blob/master/docs/mappage.png)
